@@ -316,6 +316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212f4d1c9176e4c4cbe4c28982592be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GrappleGun: {fileID: 4458003642551422716}
+  GrappleHead: {fileID: 6089999764029013062}
 --- !u!1001 &5164062761717387387
 PrefabInstance:
   m_ObjectHideFlags: 0
