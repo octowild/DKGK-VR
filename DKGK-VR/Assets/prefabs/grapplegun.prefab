@@ -354,6 +354,7 @@ MonoBehaviour:
   GrappleHead: {fileID: 6089999764029013062}
   BarrelPos: {fileID: 2060597260729910452}
   _GrappleHeadSpeed: 10
+  _ReelPullSpeed: 2
 --- !u!1001 &5164062761717387387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -510,6 +511,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 748deb0a15a9f844cab966f41b9ee467, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8268888623245803769}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 748deb0a15a9f844cab966f41b9ee467, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6882749035270712838}
   m_SourcePrefab: {fileID: 100100000, guid: 748deb0a15a9f844cab966f41b9ee467, type: 3}
 --- !u!1 &6089999764029013062 stripped
 GameObject:
@@ -537,6 +541,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.0074223205
   m_Center: {x: 0, y: -8.881784e-16, z: 0.0000000055879354}
+--- !u!114 &6882749035270712838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6089999764029013062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a38c24a6873c50148833bb4381e3a5e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6903972223008712444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 748deb0a15a9f844cab966f41b9ee467, type: 3}

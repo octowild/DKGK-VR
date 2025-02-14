@@ -10,6 +10,7 @@ public class Grapple : MonoBehaviour
     public GameObject BarrelPos;
 
     public float _GrappleHeadSpeed = 10f;
+    public float _ReelPullSpeed = 2f;
 
     private Vector3 _GunDir;
     private Vector3 _ReelDir;
@@ -60,6 +61,7 @@ public class Grapple : MonoBehaviour
         {
             _ReelDir = GrappleHead.transform.position- BarrelPos.transform.position;
             //move player here
+            //_ .transform.position+=_ReelDir*_ReelPullSpeed*Time.deltaTime;
         }
 
         if (_ReelDir.magnitude <= 5f)
