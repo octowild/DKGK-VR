@@ -353,6 +353,7 @@ MonoBehaviour:
   GrappleGun: {fileID: 4458003642551422716}
   GrappleHead: {fileID: 6089999764029013062}
   BarrelPos: {fileID: 2060597260729910452}
+  _HeadS: {fileID: 6882749035270712838}
   _GrappleHeadSpeed: 10
   _ReelPullSpeed: 2
 --- !u!1001 &5164062761717387387
@@ -535,7 +536,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -553,6 +554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a38c24a6873c50148833bb4381e3a5e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hit: 0
 --- !u!4 &6903972223008712444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 748deb0a15a9f844cab966f41b9ee467, type: 3}

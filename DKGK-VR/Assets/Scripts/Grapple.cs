@@ -8,6 +8,7 @@ public class Grapple : MonoBehaviour
     public GameObject GrappleGun;
     public GameObject GrappleHead;
     public GameObject BarrelPos;
+    public GrappleHead _HeadS; 
 
     public float _GrappleHeadSpeed = 10f;
     public float _ReelPullSpeed = 2f;
@@ -17,6 +18,7 @@ public class Grapple : MonoBehaviour
     private bool _Shooting=false;
     private bool _HeadCol=false;
     private bool _Reeling=false;
+    private bool _ready = true;
 
     void Start()
     {
@@ -32,22 +34,33 @@ public class Grapple : MonoBehaviour
         if (!_Shooting)
         {
             _GunDir = (GrappleGun.transform.up * -1);
+            _HeadS._hit = false;
+        }
+        if (_HeadS._hit)
+        {
+            _HeadCol = true;
         }
         if (_Shooting && !_HeadCol)
         {
+            _ready = false;
             GrappleHead.transform.position += _GunDir * _GrappleHeadSpeed * Time.deltaTime;
         }
-        if (_Reeling||!_Shooting) {
+
+        if (_Reeling&&!_ready) {
             GrappleReel();
         }
     }
     public void GrappleShoot()
     {
-        _Shooting = true;
+        if (_ready) { _Shooting = true; }
     }
     public void GrappleStop()
     {
         _Shooting = false;
+        if (GrappleHead.transform.position != BarrelPos.transform.position)
+        {
+            _Reeling = true;
+        }
         //GrappleHead.transform.position=BarrelPos.transform.position;
     }
     public void GrappleReel()
@@ -68,6 +81,8 @@ public class Grapple : MonoBehaviour
         {
             GrappleHead.transform.position = BarrelPos.transform.position;
             _Reeling = false;
+            _HeadS._hit = false;
+            _ready = true;
         }
         
     }
