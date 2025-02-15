@@ -1,14 +1,18 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class Grapple : MonoBehaviour
 {
+    public GameObject Player;
     public GameObject GrappleGun;
     public GameObject GrappleHead;
     public GameObject BarrelPos;
-    public GrappleHead _HeadS; 
+    public GrappleHead _HeadS;
+
+    public InputActionReference _ReelButton;
 
     public float _GrappleHeadSpeed = 10f;
     public float _ReelPullSpeed = 2f;
@@ -45,6 +49,9 @@ public class Grapple : MonoBehaviour
             _ready = false;
             GrappleHead.transform.position += _GunDir * _GrappleHeadSpeed * Time.deltaTime;
         }
+        if (_ReelButton.action.triggered) { 
+            _Reeling = true;
+        }
 
         if (_Reeling&&!_ready) {
             GrappleReel();
@@ -74,7 +81,7 @@ public class Grapple : MonoBehaviour
         {
             _ReelDir = GrappleHead.transform.position- BarrelPos.transform.position;
             //move player here
-            //_ .transform.position+=_ReelDir*_ReelPullSpeed*Time.deltaTime;
+            Player.transform.position+=_ReelDir*_ReelPullSpeed*Time.deltaTime;
         }
 
         if (_ReelDir.magnitude <= 5f)

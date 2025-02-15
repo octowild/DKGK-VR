@@ -354,6 +354,7 @@ MonoBehaviour:
   GrappleHead: {fileID: 6089999764029013062}
   BarrelPos: {fileID: 2060597260729910452}
   _HeadS: {fileID: 6882749035270712838}
+  _ReelButton: {fileID: -573836161567895667, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _GrappleHeadSpeed: 10
   _ReelPullSpeed: 2
 --- !u!1001 &5164062761717387387
