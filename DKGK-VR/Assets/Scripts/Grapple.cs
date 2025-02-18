@@ -27,7 +27,7 @@ public class Grapple : MonoBehaviour
     private Vector3 _ReelDir;
     private bool _Shooting=false;
     private bool _ready = true;
-    private int _RH = 0;
+    private InputActionReference _RH;
 
     void Start()
     {
@@ -36,6 +36,7 @@ public class Grapple : MonoBehaviour
         _grabinteractable.deactivated.AddListener(x => GrappleStop());
         _grabinteractable.selectEntered.AddListener(OnGrab);
         _grabinteractable.selectExited.AddListener(x=>OnRelease());
+        Prb.freezeRotation = true;
     
     }
 
@@ -54,8 +55,8 @@ public class Grapple : MonoBehaviour
         }
         //get which hand its on and get respective button
         //if (_grabinteractable.holdingHand == XRHand.Right){ }
-        if (_ReelR.action.triggered||_ReelL.action.triggered) {
-            if (!_ready) { GrappleReel(); }
+        if (_RH.action.triggered && !_ready) {
+            GrappleReel(); 
         }
 
 
@@ -101,7 +102,7 @@ public class Grapple : MonoBehaviour
     }
     public void OnRelease()
     {
-        _RH = 0;
+        _RH = null;
     }
 
 
@@ -111,11 +112,11 @@ public class Grapple : MonoBehaviour
 
         if (currentInteractor.CompareTag("LeftHand"))
         {
-            _RH = 2;
+            _RH = _ReelL;
         }
         else if (currentInteractor.CompareTag("RightHand"))
         {
-            _RH = 1;
+            _RH = _ReelR;
         }
     }
 }
