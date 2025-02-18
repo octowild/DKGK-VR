@@ -881,6 +881,17 @@
                     "action": "Reel",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5b4d4c14-f9cf-42d2-a8c6-ac3c33ce7f41",
+                    "path": "<QuestProTouchController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -1966,6 +1977,17 @@
                     "name": "",
                     "id": "17c00812-61be-4ed1-94cd-d0ec8f62c6b5",
                     "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0cb01df4-e63e-4f30-8306-219a9bb07bf6",
+                    "path": "<QuestProTouchController>{RightHand}/primaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

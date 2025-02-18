@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class GrappleHead : MonoBehaviour
 {
     public UnityEvent<bool> HookHit;
-    public bool _hit = false;
+    //public bool _hit = false;
 
     void Start()
     {

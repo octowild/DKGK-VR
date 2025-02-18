@@ -22,6 +22,7 @@ public class Grapple : MonoBehaviour
 
     public float _GrappleHeadSpeed = 10f;
     public float _ReelPullSpeed = 2f;
+    private InputActionReference _RH;
 
     private Vector3 _GunDir;
     private Vector3 _ReelDir;
@@ -29,7 +30,6 @@ public class Grapple : MonoBehaviour
     private bool _ready = true;
     private bool _reeling = false;
     private bool _hookhit = false;
-    private InputActionReference _RH;
 
     void Start()
     {
@@ -105,7 +105,7 @@ public class Grapple : MonoBehaviour
         {
             GrappleHead.transform.position = BarrelPos.transform.position;
             GrappleHead.transform.SetParent(GrappleGun.transform, true);
-            _HeadS._hit = false;
+            _hookhit = false;
             _ready = true;
             _Shooting = false;
             _reeling = false;
