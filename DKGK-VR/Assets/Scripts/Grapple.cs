@@ -9,7 +9,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 public class Grapple : MonoBehaviour
 {
     public GameObject Player;
-    public Rigidbody Prb;
+    //public Rigidbody Prb;
     public GameObject GrappleGun;
     public GameObject GrappleHead;
     public GameObject BarrelPos;
@@ -47,13 +47,14 @@ public class Grapple : MonoBehaviour
   //move player
     void Update()
     {
+        _RH = _ReelR;
         if (!_Shooting)
         {
             _GunDir = (GrappleGun.transform.up * -1);
             _hookhit = false;
         }
 
-        if (_Shooting && !_hookhit)
+        if (_Shooting && !_hookhit  &&!_reeling)
         {
             GrappleHead.transform.position += _GunDir * _GrappleHeadSpeed * Time.deltaTime;
             //Hrb.AddForce(_GunDir * _GrappleHeadSpeed * Time.deltaTime);
@@ -101,9 +102,10 @@ public class Grapple : MonoBehaviour
             
         }
 
-        if (_ReelDir.magnitude <= 15f)
+        if (_ReelDir.magnitude <= 2f)
         {
             GrappleHead.transform.position = BarrelPos.transform.position;
+            GrappleHead.transform.rotation = Quaternion.Euler(1.5714f,0f,0f); 
             GrappleHead.transform.SetParent(GrappleGun.transform, true);
             _hookhit = false;
             _ready = true;
