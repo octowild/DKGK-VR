@@ -38,7 +38,7 @@ public class Grapple : MonoBehaviour
         _grabinteractable.deactivated.AddListener(x => GrappleStop());
         _grabinteractable.selectEntered.AddListener(OnGrab);
         _grabinteractable.selectExited.AddListener(x=>OnRelease());
-        Prb.freezeRotation = true;
+       // Prb.freezeRotation = true;
 
         _HeadS.HookHit.AddListener(OnHookHit);
     }
@@ -50,10 +50,10 @@ public class Grapple : MonoBehaviour
         if (!_Shooting)
         {
             _GunDir = (GrappleGun.transform.up * -1);
-            _HeadS._hit = false;
+            _hookhit = false;
         }
 
-        if (_Shooting && !_HeadS._hit)
+        if (_Shooting && !_hookhit)
         {
             GrappleHead.transform.position += _GunDir * _GrappleHeadSpeed * Time.deltaTime;
             //Hrb.AddForce(_GunDir * _GrappleHeadSpeed * Time.deltaTime);
@@ -63,7 +63,7 @@ public class Grapple : MonoBehaviour
         if (_RH.action.triggered && !_ready) {
             _reeling=true;
         }
-        if (_reeling) { 
+        if (_reeling) {
             GrappleReel();
         }
 
@@ -80,21 +80,21 @@ public class Grapple : MonoBehaviour
     public void GrappleStop()
     {
         //for testing 
-        GrappleReel();
+        _reeling = true;
         //GrappleHead.transform.SetParent(GrappleGun.transform, true);
 
     }
     public void GrappleReel()
     {
-        if (!_HeadS._hit)
+        if (!_hookhit)
         {
-                _ReelDir = BarrelPos.transform.position- GrappleHead.transform.position;
+                _ReelDir = GrappleGun.transform.position- GrappleHead.transform.position;
                 GrappleHead.transform.position += _ReelDir.normalized * _GrappleHeadSpeed * Time.deltaTime;
                 //Hrb.AddForce (_ReelDir.normalized * _GrappleHeadSpeed * Time.deltaTime);
         }
-        else if (_HeadS._hit) 
+        else if (_hookhit) 
         {
-            _ReelDir = GrappleHead.transform.position- BarrelPos.transform.position;
+            _ReelDir = GrappleHead.transform.position- GrappleGun.transform.position;
             //move player here
             Player.transform.position+=_ReelDir*Mathf.Lerp(0f,_ReelPullSpeed,0.02f)*Time.deltaTime;
             //Prb.AddForce(_ReelDir.normalized*_ReelPullSpeed*Time.deltaTime);
@@ -118,13 +118,12 @@ public class Grapple : MonoBehaviour
     }
     private void OnGrab(SelectEnterEventArgs args)
     {
-        XRBaseInteractor currentInteractor = (XRBaseInteractor)args.interactorObject;
 
-        if (currentInteractor.CompareTag("LeftHand"))
+        if (args.interactorObject.transform.tag=="LeftHand")
         {
             _RH = _ReelL;
         }
-        else if (currentInteractor.CompareTag("RightHand"))
+        else if (args.interactorObject.transform.tag == "RightHand")
         {
             _RH = _ReelR;
         }
