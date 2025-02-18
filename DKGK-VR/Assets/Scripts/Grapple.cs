@@ -10,6 +10,7 @@ public class Grapple : MonoBehaviour
 {
     public GameObject Player;
     public Rigidbody Prb;
+    public Rigidbody Hrb;
     public GameObject GrappleGun;
     public GameObject GrappleHead;
     public GameObject BarrelPos;
@@ -27,6 +28,7 @@ public class Grapple : MonoBehaviour
     private Vector3 _ReelDir;
     private bool _Shooting=false;
     private bool _ready = true;
+    private bool _reeling = false;
     private InputActionReference _RH;
 
     void Start()
@@ -51,12 +53,16 @@ public class Grapple : MonoBehaviour
 
         if (_Shooting && !_HeadS._hit)
         {
-            GrappleHead.transform.position += _GunDir * _GrappleHeadSpeed * Time.deltaTime;
+            //GrappleHead.transform.position += _GunDir * _GrappleHeadSpeed * Time.deltaTime;
+            Hrb.AddForce(_GunDir * _GrappleHeadSpeed * Time.deltaTime);
         }
         //get which hand its on and get respective button
         //if (_grabinteractable.holdingHand == XRHand.Right){ }
         if (_RH.action.triggered && !_ready) {
-            GrappleReel(); 
+            _reeling=true;
+        }
+        if (_reeling) { 
+            GrappleReel();
         }
 
 
@@ -97,6 +103,7 @@ public class Grapple : MonoBehaviour
             _HeadS._hit = false;
             _ready = true;
             _Shooting = false;
+            _reeling = false;
         }
         
     }

@@ -355,6 +355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   Prb: {fileID: 0}
+  Hrb: {fileID: 3467887697825594852}
   GrappleGun: {fileID: 4458003642551422716}
   GrappleHead: {fileID: 6089999764029013062}
   BarrelPos: {fileID: 2060597260729910452}
@@ -562,7 +563,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.0074223205
+  m_Radius: 0.05
   m_Center: {x: 0, y: -8.881784e-16, z: 0.0000000055879354}
 --- !u!114 &6882749035270712838
 MonoBehaviour:
