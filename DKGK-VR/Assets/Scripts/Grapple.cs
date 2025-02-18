@@ -34,7 +34,8 @@ public class Grapple : MonoBehaviour
         _grabinteractable = GetComponent<XRGrabInteractable>();
         _grabinteractable.activated.AddListener(x=>GrappleShoot());
         _grabinteractable.deactivated.AddListener(x => GrappleStop());
-        //_grabinteractable.selectEntered.AddListener(Gethand);
+        _grabinteractable.selectEntered.AddListener(OnGrab);
+        _grabinteractable.selectExited.AddListener(x=>OnRelease());
     
     }
 
@@ -53,8 +54,8 @@ public class Grapple : MonoBehaviour
         }
         //get which hand its on and get respective button
         //if (_grabinteractable.holdingHand == XRHand.Right){ }
-        if (_ReelR.action.triggered||_ReelL.action.triggered) { 
-            if(!_ready) GrappleReel();
+        if (_ReelR.action.triggered||_ReelL.action.triggered) {
+            if (!_ready) { GrappleReel(); }
         }
 
 
@@ -98,8 +99,23 @@ public class Grapple : MonoBehaviour
         }
         
     }
-    public void Gethand()
+    public void OnRelease()
     {
-        _RH = 1;
+        _RH = 0;
+    }
+
+
+    private void OnGrab(SelectEnterEventArgs args)
+    {
+        XRBaseInteractor currentInteractor = (XRBaseInteractor)args.interactorObject;
+
+        if (currentInteractor.CompareTag("LeftHand"))
+        {
+            _RH = 2;
+        }
+        else if (currentInteractor.CompareTag("RightHand"))
+        {
+            _RH = 1;
+        }
     }
 }

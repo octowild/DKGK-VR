@@ -354,6 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  Prb: {fileID: 0}
   GrappleGun: {fileID: 4458003642551422716}
   GrappleHead: {fileID: 6089999764029013062}
   BarrelPos: {fileID: 2060597260729910452}
@@ -533,6 +534,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 748deb0a15a9f844cab966f41b9ee467, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6882749035270712838}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 748deb0a15a9f844cab966f41b9ee467, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3467887697825594852}
   m_SourcePrefab: {fileID: 100100000, guid: 748deb0a15a9f844cab966f41b9ee467, type: 3}
 --- !u!1 &6089999764029013062 stripped
 GameObject:
@@ -573,6 +577,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hit: 0
+--- !u!54 &3467887697825594852
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6089999764029013062}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &6903972223008712444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 748deb0a15a9f844cab966f41b9ee467, type: 3}
