@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR;
+using UnityEngine.XR.Hands;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class Grapple : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class Grapple : MonoBehaviour
     public GameObject GrappleHead;
     public GameObject BarrelPos;
     public GrappleHead _HeadS;
+
+    private XRGrabInteractable _grabinteractable;
 
     public InputActionReference _ReelR;
     public InputActionReference _ReelL;
@@ -26,9 +30,9 @@ public class Grapple : MonoBehaviour
 
     void Start()
     {
-        XRGrabInteractable _grabinteractable = GetComponent<XRGrabInteractable>();
+        _grabinteractable = GetComponent<XRGrabInteractable>();
         _grabinteractable.activated.AddListener(x=>GrappleShoot());
-        _grabinteractable.deactivated.AddListener(x=>GrappleStop());
+        _grabinteractable.deactivated.AddListener(x => GrappleStop());
     
     }
 
@@ -46,6 +50,7 @@ public class Grapple : MonoBehaviour
             GrappleHead.transform.position += _GunDir * _GrappleHeadSpeed * Time.deltaTime;
         }
         //get which hand its on and get respective button
+        //if (_grabinteractable.holdingHand == XRHand.Right){ }
         if (_ReelR.action.triggered||_ReelL.action.triggered) { 
             if(!_ready) GrappleReel();
         }
