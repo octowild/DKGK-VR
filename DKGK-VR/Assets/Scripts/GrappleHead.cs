@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GrappleHead : MonoBehaviour
 {
-
+    public UnityEvent<bool> HookHit;
     public bool _hit = false;
 
     void Start()
@@ -15,12 +16,14 @@ public class GrappleHead : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        _hit = true;
+        HookHit.Invoke(true);
+        //_hit = true;
     }
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        _hit = false;
+        HookHit.Invoke(false);
     }
+
 }

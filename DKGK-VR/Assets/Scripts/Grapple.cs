@@ -10,7 +10,6 @@ public class Grapple : MonoBehaviour
 {
     public GameObject Player;
     public Rigidbody Prb;
-    public Rigidbody Hrb;
     public GameObject GrappleGun;
     public GameObject GrappleHead;
     public GameObject BarrelPos;
@@ -29,6 +28,7 @@ public class Grapple : MonoBehaviour
     private bool _Shooting=false;
     private bool _ready = true;
     private bool _reeling = false;
+    private bool _hookhit = false;
     private InputActionReference _RH;
 
     void Start()
@@ -39,7 +39,8 @@ public class Grapple : MonoBehaviour
         _grabinteractable.selectEntered.AddListener(OnGrab);
         _grabinteractable.selectExited.AddListener(x=>OnRelease());
         Prb.freezeRotation = true;
-    
+
+        _HeadS.HookHit.AddListener(OnHookHit);
     }
 
   // add button for reeling
@@ -49,16 +50,17 @@ public class Grapple : MonoBehaviour
         if (!_Shooting)
         {
             _GunDir = (GrappleGun.transform.up * -1);
+            _HeadS._hit = false;
         }
 
         if (_Shooting && !_HeadS._hit)
         {
-            //GrappleHead.transform.position += _GunDir * _GrappleHeadSpeed * Time.deltaTime;
-            Hrb.AddForce(_GunDir * _GrappleHeadSpeed * Time.deltaTime);
+            GrappleHead.transform.position += _GunDir * _GrappleHeadSpeed * Time.deltaTime;
+            //Hrb.AddForce(_GunDir * _GrappleHeadSpeed * Time.deltaTime);
         }
         //get which hand its on and get respective button
         //if (_grabinteractable.holdingHand == XRHand.Right){ }
-        if (_ReelR.action.triggered && !_ready) {
+        if (_RH.action.triggered && !_ready) {
             _reeling=true;
         }
         if (_reeling) { 
@@ -77,7 +79,8 @@ public class Grapple : MonoBehaviour
     }
     public void GrappleStop()
     {
-
+        //for testing 
+        GrappleReel();
         //GrappleHead.transform.SetParent(GrappleGun.transform, true);
 
     }
@@ -86,15 +89,15 @@ public class Grapple : MonoBehaviour
         if (!_HeadS._hit)
         {
                 _ReelDir = BarrelPos.transform.position- GrappleHead.transform.position;
-                //GrappleHead.transform.position += _ReelDir.normalized * _GrappleHeadSpeed * Time.deltaTime;
-                Hrb.AddForce (_ReelDir.normalized * _GrappleHeadSpeed * Time.deltaTime);
+                GrappleHead.transform.position += _ReelDir.normalized * _GrappleHeadSpeed * Time.deltaTime;
+                //Hrb.AddForce (_ReelDir.normalized * _GrappleHeadSpeed * Time.deltaTime);
         }
         else if (_HeadS._hit) 
         {
             _ReelDir = GrappleHead.transform.position- BarrelPos.transform.position;
             //move player here
-            //layer.transform.position+=_ReelDir*Mathf.Lerp(0f,_ReelPullSpeed,0.02f)*Time.deltaTime;
-            Prb.AddForce(_ReelDir.normalized*_ReelPullSpeed*Time.deltaTime);
+            Player.transform.position+=_ReelDir*Mathf.Lerp(0f,_ReelPullSpeed,0.02f)*Time.deltaTime;
+            //Prb.AddForce(_ReelDir.normalized*_ReelPullSpeed*Time.deltaTime);
             
         }
 
@@ -109,12 +112,10 @@ public class Grapple : MonoBehaviour
         }
         
     }
-    public void OnRelease()
+    public void OnHookHit(bool hookhit)
     {
-        _RH = null;
+        _hookhit = hookhit;
     }
-
-
     private void OnGrab(SelectEnterEventArgs args)
     {
         XRBaseInteractor currentInteractor = (XRBaseInteractor)args.interactorObject;
@@ -127,5 +128,9 @@ public class Grapple : MonoBehaviour
         {
             _RH = _ReelR;
         }
+    }
+    public void OnRelease()
+    {
+        _RH = null;
     }
 }
