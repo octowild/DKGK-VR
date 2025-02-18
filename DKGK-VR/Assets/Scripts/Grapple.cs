@@ -58,7 +58,7 @@ public class Grapple : MonoBehaviour
         }
         //get which hand its on and get respective button
         //if (_grabinteractable.holdingHand == XRHand.Right){ }
-        if (_RH.action.triggered && !_ready) {
+        if (_ReelR.action.triggered && !_ready) {
             _reeling=true;
         }
         if (_reeling) { 
@@ -86,7 +86,8 @@ public class Grapple : MonoBehaviour
         if (!_HeadS._hit)
         {
                 _ReelDir = BarrelPos.transform.position- GrappleHead.transform.position;
-                GrappleHead.transform.position += _ReelDir.normalized * _GrappleHeadSpeed * Time.deltaTime;
+                //GrappleHead.transform.position += _ReelDir.normalized * _GrappleHeadSpeed * Time.deltaTime;
+                Hrb.AddForce (_ReelDir.normalized * _GrappleHeadSpeed * Time.deltaTime);
         }
         else if (_HeadS._hit) 
         {
@@ -97,9 +98,10 @@ public class Grapple : MonoBehaviour
             
         }
 
-        if (_ReelDir.magnitude <= 5f)
+        if (_ReelDir.magnitude <= 15f)
         {
             GrappleHead.transform.position = BarrelPos.transform.position;
+            GrappleHead.transform.SetParent(GrappleGun.transform, true);
             _HeadS._hit = false;
             _ready = true;
             _Shooting = false;
