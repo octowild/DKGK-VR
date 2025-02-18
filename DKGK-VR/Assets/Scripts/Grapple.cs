@@ -27,12 +27,14 @@ public class Grapple : MonoBehaviour
     private Vector3 _ReelDir;
     private bool _Shooting=false;
     private bool _ready = true;
+    private int _RH = 0;
 
     void Start()
     {
         _grabinteractable = GetComponent<XRGrabInteractable>();
         _grabinteractable.activated.AddListener(x=>GrappleShoot());
         _grabinteractable.deactivated.AddListener(x => GrappleStop());
+        //_grabinteractable.selectEntered.AddListener(Gethand);
     
     }
 
@@ -95,5 +97,9 @@ public class Grapple : MonoBehaviour
             _Shooting = false;
         }
         
+    }
+    public void Gethand()
+    {
+        _RH = 1;
     }
 }
