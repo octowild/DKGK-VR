@@ -13,7 +13,7 @@ public class GrappleHead : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(_hit);
+
     }
 
     private void OnTriggerEnter(Collider other)

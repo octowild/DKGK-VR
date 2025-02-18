@@ -26,10 +26,10 @@ public class Grapple : MonoBehaviour
 
     private Vector3 _GunDir;
     private Vector3 _ReelDir;
-    private bool _Shooting=false;
-    private bool _ready = true;
-    private bool _reeling = false;
-    private bool _hookhit = false;
+    public bool _Shooting=false;
+    public bool _ready = true;
+    public bool _reeling = false;
+    public bool _hookhit = false;
 
     void Start()
     {
@@ -41,17 +41,17 @@ public class Grapple : MonoBehaviour
        // Prb.freezeRotation = true;
 
         _HeadS.HookHit.AddListener(OnHookHit);
+        _RH = _ReelR;
     }
 
   // add button for reeling
   //move player
     void Update()
     {
-        _RH = _ReelR;
+        //_hookhit=_HeadS._hit;
         if (!_Shooting)
         {
-            _GunDir = (GrappleGun.transform.up * -1);
-            _hookhit = false;
+            _GunDir = (GrappleGun.transform.up * -1);          
         }
 
         if (_Shooting && !_hookhit  &&!_reeling)
@@ -132,6 +132,6 @@ public class Grapple : MonoBehaviour
     }
     public void OnRelease()
     {
-        _RH = null;
+        //_RH = null;
     }
 }
