@@ -7,12 +7,14 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 public class Grapple : MonoBehaviour
 {
     public GameObject Player;
+    public Rigidbody Prb;
     public GameObject GrappleGun;
     public GameObject GrappleHead;
     public GameObject BarrelPos;
     public GrappleHead _HeadS;
 
-    public InputActionReference _ReelButton;
+    public InputActionReference _ReelR;
+    public InputActionReference _ReelL;
 
     public float _GrappleHeadSpeed = 10f;
     public float _ReelPullSpeed = 2f;
@@ -20,8 +22,6 @@ public class Grapple : MonoBehaviour
     private Vector3 _GunDir;
     private Vector3 _ReelDir;
     private bool _Shooting=false;
-    private bool _HeadCol=false;
-    private bool _Reeling=false;
     private bool _ready = true;
 
     void Start()
@@ -29,6 +29,7 @@ public class Grapple : MonoBehaviour
         XRGrabInteractable _grabinteractable = GetComponent<XRGrabInteractable>();
         _grabinteractable.activated.AddListener(x=>GrappleShoot());
         _grabinteractable.deactivated.AddListener(x=>GrappleStop());
+    
     }
 
   // add button for reeling
@@ -38,58 +39,55 @@ public class Grapple : MonoBehaviour
         if (!_Shooting)
         {
             _GunDir = (GrappleGun.transform.up * -1);
-            _HeadS._hit = false;
-        }
-        if (_HeadS._hit)
-        {
-            _HeadCol = true;
-        }
-        if (_Shooting && !_HeadCol)
-        {
-            _ready = false;
-            GrappleHead.transform.position += _GunDir * _GrappleHeadSpeed * Time.deltaTime;
-        }
-        if (_ReelButton.action.triggered) { 
-            _Reeling = true;
         }
 
-        if (_Reeling&&!_ready) {
-            GrappleReel();
+        if (_Shooting && !_HeadS._hit)
+        {
+            GrappleHead.transform.position += _GunDir * _GrappleHeadSpeed * Time.deltaTime;
         }
+        //get which hand its on and get respective button
+        if (_ReelR.action.triggered||_ReelL.action.triggered) { 
+            if(!_ready) GrappleReel();
+        }
+
+
     }
     public void GrappleShoot()
     {
-        if (_ready) { _Shooting = true; }
+        if (_ready) {
+            _Shooting = true;
+            _ready = false;
+            GrappleHead.transform.SetParent(null,true);
+        }
     }
     public void GrappleStop()
     {
-        _Shooting = false;
-        if (GrappleHead.transform.position != BarrelPos.transform.position)
-        {
-            _Reeling = true;
-        }
-        //GrappleHead.transform.position=BarrelPos.transform.position;
+
+        //GrappleHead.transform.SetParent(GrappleGun.transform, true);
+
     }
     public void GrappleReel()
     {
-        if (!_HeadCol||!_Shooting)
+        if (!_HeadS._hit)
         {
                 _ReelDir = BarrelPos.transform.position- GrappleHead.transform.position;
                 GrappleHead.transform.position += _ReelDir.normalized * _GrappleHeadSpeed * Time.deltaTime;
         }
-        else if (_HeadCol) 
+        else if (_HeadS._hit) 
         {
             _ReelDir = GrappleHead.transform.position- BarrelPos.transform.position;
             //move player here
-            Player.transform.position+=_ReelDir*_ReelPullSpeed*Time.deltaTime;
+            //layer.transform.position+=_ReelDir*Mathf.Lerp(0f,_ReelPullSpeed,0.02f)*Time.deltaTime;
+            Prb.AddForce(_ReelDir.normalized*_ReelPullSpeed*Time.deltaTime);
+            
         }
 
         if (_ReelDir.magnitude <= 5f)
         {
             GrappleHead.transform.position = BarrelPos.transform.position;
-            _Reeling = false;
             _HeadS._hit = false;
             _ready = true;
+            _Shooting = false;
         }
         
     }

@@ -16,8 +16,12 @@ public class GrappleHead : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
         _hit = true;
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        _hit = false;
     }
 }
