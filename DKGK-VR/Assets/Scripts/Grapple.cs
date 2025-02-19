@@ -20,8 +20,8 @@ public class Grapple : MonoBehaviour
     public InputActionReference _ReelR;
     public InputActionReference _ReelL;
 
-    public float _GrappleHeadSpeed = 10f;
-    public float _ReelPullSpeed = 2f;
+    public float _GrappleHeadSpeed = 20f;
+    public float _ReelPullSpeed = 50f;
     private InputActionReference _RH;
 
     private Vector3 _GunDir;
@@ -125,7 +125,7 @@ public class Grapple : MonoBehaviour
             _reeling = false;
             if (_hitTag == "GrapplePull")
             {
-                _hitTarget.transform.SetParent(GrappleHead.transform, false);
+                _hitTarget.transform.SetParent(null, true);
             }
         }
         
