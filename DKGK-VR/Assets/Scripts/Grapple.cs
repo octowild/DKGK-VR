@@ -30,6 +30,8 @@ public class Grapple : MonoBehaviour
     public bool _ready = true;
     public bool _reeling = false;
     public bool _hookhit = false;
+    public string _hitTag;
+    public GameObject _hitTarget;
 
     void Start()
     {
@@ -95,10 +97,20 @@ public class Grapple : MonoBehaviour
         }
         else if (_hookhit) 
         {
-            _ReelDir = GrappleHead.transform.position- GrappleGun.transform.position;
-            //move player here
-            Player.transform.position+=_ReelDir*Mathf.Lerp(0f,_ReelPullSpeed,0.02f)*Time.deltaTime;
-            //Prb.AddForce(_ReelDir.normalized*_ReelPullSpeed*Time.deltaTime);
+            if (_hitTag == "GrappleTo")
+            {
+                //pulling player
+                _ReelDir = GrappleHead.transform.position - GrappleGun.transform.position;
+                //move player here
+                Player.transform.position += _ReelDir * Mathf.Lerp(0f, _ReelPullSpeed, 0.02f) * Time.deltaTime;
+                //Prb.AddForce(_ReelDir.normalized*_ReelPullSpeed*Time.deltaTime);
+            }else if (_hitTag == "GrapplePull")
+            {
+                //pulling obj to player
+                _ReelDir = GrappleGun.transform.position - GrappleHead.transform.position;
+                GrappleHead.transform.position += _ReelDir.normalized * _GrappleHeadSpeed * Time.deltaTime;
+                _hitTarget.transform.SetParent(GrappleHead.transform, true);
+            }
             
         }
 
@@ -111,12 +123,19 @@ public class Grapple : MonoBehaviour
             _ready = true;
             _Shooting = false;
             _reeling = false;
+            if (_hitTag == "GrapplePull")
+            {
+                _hitTarget.transform.SetParent(GrappleHead.transform, false);
+            }
         }
         
     }
-    public void OnHookHit(bool hookhit)
+    public void OnHookHit(bool hookhit, GameObject hittarget)
     {
         _hookhit = hookhit;
+        _hitTarget = hittarget;
+        _hitTag = hittarget.transform.tag;
+
     }
     private void OnGrab(SelectEnterEventArgs args)
     {

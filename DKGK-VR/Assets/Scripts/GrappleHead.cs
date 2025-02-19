@@ -3,8 +3,8 @@ using UnityEngine.Events;
 
 public class GrappleHead : MonoBehaviour
 {
-    public UnityEvent<bool> HookHit;
-    public bool _hit = false;
+    public UnityEvent<bool,GameObject> HookHit;
+    //public bool _hit = false;
 
     void Start()
     {
@@ -18,13 +18,14 @@ public class GrappleHead : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        HookHit.Invoke(true);
-        _hit = true;
+        
+        HookHit.Invoke(true,other.gameObject);
+        //_hit = true;
     }
     private void OnTriggerExit(Collider other)
     {
-        HookHit.Invoke(false);
-        _hit = false;
+        HookHit.Invoke(false,other.gameObject);
+        //_hit = false;
     }
 
 }
