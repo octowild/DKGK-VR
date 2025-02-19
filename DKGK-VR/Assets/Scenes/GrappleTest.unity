@@ -1504,6 +1504,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 702525057}
+    - target: {fileID: 3228920796350004628, guid: fe2647af86eaf8e4f84d097bbeaf7d5d, type: 3}
+      propertyPath: _ReelPullSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3933280872028738630, guid: fe2647af86eaf8e4f84d097bbeaf7d5d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.4130433
