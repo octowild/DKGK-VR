@@ -151,6 +151,12 @@ public class Grapple : MonoBehaviour
     }
     public void OnRelease()
     {
+        _hookhit = false;
+        _ready = true;
+        _Shooting = false;
+        _reeling = false;
+        GrappleHead.transform.position = BarrelPos.transform.position;
+        GrappleHead.transform.SetParent(GrappleGun.transform, true);
         //_RH = null;
     }
 }

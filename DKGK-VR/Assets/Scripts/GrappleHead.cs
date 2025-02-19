@@ -18,13 +18,18 @@ public class GrappleHead : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        HookHit.Invoke(true,other.gameObject);
+        if (other.gameObject.layer != 6)
+        {
+            HookHit.Invoke(true, other.gameObject);
+        }
         //_hit = true;
     }
     private void OnTriggerExit(Collider other)
     {
-        HookHit.Invoke(false,other.gameObject);
+        if (other.gameObject.layer != 6)
+        {
+            HookHit.Invoke(false, other.gameObject);
+        }
         //_hit = false;
     }
 
