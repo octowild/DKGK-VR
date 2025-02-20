@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 21146355}
   - component: {fileID: 21146354}
   - component: {fileID: 21146353}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (5)
   m_TagString: GrappleTo
   m_Icon: {fileID: 0}
@@ -724,7 +724,7 @@ PrefabInstance:
     - target: {fileID: 3228920796350004628, guid: fe2647af86eaf8e4f84d097bbeaf7d5d, type: 3}
       propertyPath: Prb
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2001553631}
     - target: {fileID: 3228920796350004628, guid: fe2647af86eaf8e4f84d097bbeaf7d5d, type: 3}
       propertyPath: Player
       value: 
@@ -1341,6 +1341,10 @@ PrefabInstance:
       value: Teleport Area
       objectReference: {fileID: 0}
     - target: {fileID: 4266640295717640279, guid: beb4e2871579447497fe41dfb108e2cd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266640295717640279, guid: beb4e2871579447497fe41dfb108e2cd, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1400,6 +1404,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8708985967341403627, guid: beb4e2871579447497fe41dfb108e2cd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1455,6 +1463,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &2001553631 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 180381576762648854, guid: c6c81cc97808cb54f85fb10bd6962418, type: 3}
+  m_PrefabInstance: {fileID: 59433994}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2021724215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1586,7 +1599,7 @@ PrefabInstance:
     - target: {fileID: 3228920796350004628, guid: fe2647af86eaf8e4f84d097bbeaf7d5d, type: 3}
       propertyPath: Prb
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2001553631}
     - target: {fileID: 3228920796350004628, guid: fe2647af86eaf8e4f84d097bbeaf7d5d, type: 3}
       propertyPath: Player
       value: 

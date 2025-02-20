@@ -10,7 +10,7 @@ public class Grapple : MonoBehaviour
 {
     public WorldLogic _worldlogic;
     public GameObject Player;
-    //public Rigidbody Prb;
+    public Rigidbody Prb;
     public GameObject GrappleGun;
     public GameObject GrappleHead;
     public GameObject BarrelPos;
@@ -42,7 +42,6 @@ public class Grapple : MonoBehaviour
         _grabinteractable.deactivated.AddListener(x => GrappleStop());
         _grabinteractable.selectEntered.AddListener(OnGrab);
         _grabinteractable.selectExited.AddListener(x=>OnRelease());
-       // Prb.freezeRotation = true;
 
         _HeadS.HookHit.AddListener(OnHookHit);
         _RH = _ReelR;
