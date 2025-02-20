@@ -6,15 +6,13 @@ public class todo : MonoBehaviour
  *      swinging
  * rope
  *      rendering
- *      let off when rope collides
+ *      let go when rope collides
  *bindings
  *      wep wheel
  *      press once instead of hold to hold gun
  *      hook release button
  *other weps
- *      dual guns
- *      big gun with rocket jump
- *      bow arrow
+      figure out how bow and arrow works
  *      
  *      zipline
  *      

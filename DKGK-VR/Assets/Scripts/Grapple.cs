@@ -19,12 +19,15 @@ public class Grapple : MonoBehaviour
 
     private XRGrabInteractable _grabinteractable;
 
-    public InputActionReference _ReelR;
-    public InputActionReference _ReelL;
+    public InputActionReference _Trig;
+    public InputActionReference _Reel;
+    public InputActionReference _Release;
+
+
 
     public float _GrappleHeadSpeed = 20f;
     public float _ReelPullSpeed = 50f;
-    private InputActionReference _RH;
+   // private InputActionReference _RH;
 
     private Vector3 _GunDir;
     private Vector3 _ReelDir;
@@ -32,6 +35,7 @@ public class Grapple : MonoBehaviour
     public bool _ready = true;
     public bool _reeling = false;
     public bool _hookhit = false;
+    public bool _released = false;
     public string _hitTag;
     public GameObject _hitTarget;
 
@@ -40,35 +44,34 @@ public class Grapple : MonoBehaviour
         _worldlogic =GameObject.FindGameObjectWithTag("Logic").GetComponent<WorldLogic>();
         Player = _worldlogic._Player;
         Prb = Player.transform.GetChild(0).GetComponent<Rigidbody>();
-        _grabinteractable = GetComponent<XRGrabInteractable>();
-        _grabinteractable.activated.AddListener(x=>GrappleShoot());
-        _grabinteractable.deactivated.AddListener(x => GrappleStop());
-        _grabinteractable.selectEntered.AddListener(OnGrab);
-        _grabinteractable.selectExited.AddListener(x=>OnRelease());
+        //_grabinteractable = GetComponent<XRGrabInteractable>();
+        //_grabinteractable.activated.AddListener(x=>GrappleShoot());
+        //_grabinteractable.deactivated.AddListener(x => GrappleStop());
+        //_grabinteractable.selectEntered.AddListener(OnGrab);
+        //_grabinteractable.selectExited.AddListener(x=>OnRelease());
 
         _HeadS.HookHit.AddListener(OnHookHit);
-        _RH = _ReelR;
     }
 
   // add button for reeling
   //move player
     void Update()
     {
+        if (_Trig.action.triggered) GrappleShoot();
+        if (_Reel.action.triggered && !_ready) _reeling = true;
+        if (_Release.action.triggered)
+        {
+            _reeling=true;
+            _released=true;
+        }
         //_hookhit=_HeadS._hit;
         if (!_Shooting)
         {
             _GunDir = (GrappleGun.transform.up * -1);          
         }
-
         if (_Shooting && !_hookhit  &&!_reeling)
         {
             GrappleHead.transform.position += _GunDir * _GrappleHeadSpeed * Time.deltaTime;
-            //Hrb.AddForce(_GunDir * _GrappleHeadSpeed * Time.deltaTime);
-        }
-        //get which hand its on and get respective button
-        //if (_grabinteractable.holdingHand == XRHand.Right){ }
-        if (_RH.action.triggered && !_ready) {
-            _reeling=true;
         }
         if (_reeling) {
             GrappleReel();
@@ -84,16 +87,16 @@ public class Grapple : MonoBehaviour
             GrappleHead.transform.SetParent(null,true);
         }
     }
-    public void GrappleStop()
-    {
+    //public void GrappleStop()
+    //{
         //for testing 
         //_reeling = true;
         //GrappleHead.transform.SetParent(GrappleGun.transform, true);
 
-    }
+    //}
     public void GrappleReel()
     {
-        if (!_hookhit)
+        if (!_hookhit||_released)
         {
                 _ReelDir = GrappleGun.transform.position- GrappleHead.transform.position;
                 GrappleHead.transform.position += _ReelDir.normalized * _GrappleHeadSpeed * Time.deltaTime;
@@ -127,6 +130,7 @@ public class Grapple : MonoBehaviour
             _ready = true;
             _Shooting = false;
             _reeling = false;
+            _released = false;
             if (_hitTag == "GrapplePull")
             {
                 _hitTarget.transform.SetParent(null, true);
@@ -141,7 +145,7 @@ public class Grapple : MonoBehaviour
         _hitTag = hittarget.transform.tag;
 
     }
-    private void OnGrab(SelectEnterEventArgs args)
+ /*   private void OnGrab(SelectEnterEventArgs args)
     {
 
         if (args.interactorObject.transform.tag=="LeftHand")
@@ -163,4 +167,5 @@ public class Grapple : MonoBehaviour
         GrappleHead.transform.SetParent(GrappleGun.transform, true);
         //_RH = null;
     }
+ */
 }
