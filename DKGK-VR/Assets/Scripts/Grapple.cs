@@ -117,7 +117,7 @@ public class Grapple : MonoBehaviour
         if (_ReelDir.magnitude <= 2f)
         {
             GrappleHead.transform.position = BarrelPos.transform.position;
-            GrappleHead.transform.rotation = Quaternion.Euler(0f,0f,0f); 
+            GrappleHead.transform.localRotation = Quaternion.Euler(0f,0f,0f); 
             GrappleHead.transform.SetParent(GrappleGun.transform, true);
             _hookhit = false;
             _ready = true;

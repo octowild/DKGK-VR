@@ -2,20 +2,20 @@ using UnityEngine;
 
 public class PlayerPhy : MonoBehaviour
 {
-    public Transform _selfT;
-    public Rigidbody _Rb;
-    public float _gravity = 9.8f;
-    public Vector3 _velocity = Vector3.zero;
+    public Transform _playerhead;
+    public CapsuleCollider _bodyCol;
+
+    public float _bodyHeightMin = 0.5f;
+    public float _bodyHeightMax = 2f;
+
     void Start()
     {
-        _Rb.freezeRotation = true;
+        
     }
     
-    void Update()
+    void FixedUpdate()
     {
-        _velocity += Vector3.down * _gravity;
-
-
-        //_selfT.position += _velocity*Time.deltaTime;
+        _bodyCol.height = Mathf.Clamp(_playerhead.localPosition.y, _bodyHeightMin, _bodyHeightMax);
+        _bodyCol.center=new Vector3(_playerhead.localPosition.x,_bodyCol.height/2,_playerhead.localPosition.z);
     }
 }
