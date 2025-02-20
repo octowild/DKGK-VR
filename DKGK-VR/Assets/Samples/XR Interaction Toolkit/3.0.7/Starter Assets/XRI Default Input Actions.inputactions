@@ -1612,6 +1612,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Stick right",
+                    "type": "Button",
+                    "id": "8acd977d-ed34-4177-b7b9-8829f2c3aae6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Stick left",
+                    "type": "Button",
+                    "id": "a8880af3-bf21-4040-ac71-d1a7a636e9ef",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -2118,6 +2136,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "63a6e192-1768-43c8-ab4d-45c1a710f020",
+                    "path": "<QuestProTouchController>{RightHand}/thumbstick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Stick right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "35b7a61c-f914-4972-bcbb-d6d24314a0eb",
+                    "path": "<QuestProTouchController>{RightHand}/thumbstick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Stick left",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

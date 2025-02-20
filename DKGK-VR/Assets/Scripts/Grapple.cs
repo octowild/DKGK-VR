@@ -1,3 +1,4 @@
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR;
@@ -36,7 +37,9 @@ public class Grapple : MonoBehaviour
 
     void Start()
     {
-        //_worldlogic =;
+        _worldlogic =GameObject.FindGameObjectWithTag("Logic").GetComponent<WorldLogic>();
+        Player = _worldlogic._Player;
+        Prb = Player.transform.GetChild(0).GetComponent<Rigidbody>();
         _grabinteractable = GetComponent<XRGrabInteractable>();
         _grabinteractable.activated.AddListener(x=>GrappleShoot());
         _grabinteractable.deactivated.AddListener(x => GrappleStop());
@@ -84,7 +87,7 @@ public class Grapple : MonoBehaviour
     public void GrappleStop()
     {
         //for testing 
-        _reeling = true;
+        //_reeling = true;
         //GrappleHead.transform.SetParent(GrappleGun.transform, true);
 
     }
