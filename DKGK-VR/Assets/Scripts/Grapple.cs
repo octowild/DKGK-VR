@@ -8,6 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class Grapple : MonoBehaviour
 {
+    public WorldLogic _worldlogic;
     public GameObject Player;
     //public Rigidbody Prb;
     public GameObject GrappleGun;
@@ -35,6 +36,7 @@ public class Grapple : MonoBehaviour
 
     void Start()
     {
+        //_worldlogic =;
         _grabinteractable = GetComponent<XRGrabInteractable>();
         _grabinteractable.activated.AddListener(x=>GrappleShoot());
         _grabinteractable.deactivated.AddListener(x => GrappleStop());

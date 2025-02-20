@@ -1,11 +1,17 @@
+using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WorldLogic : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public string[] _Inv;
+
+    public GameObject _Player;
+
+    public InputActionReference _RightStick;
     void Start()
     {
-        
+        _Inv.Append("Dual Guns");
     }
 
     // Update is called once per frame

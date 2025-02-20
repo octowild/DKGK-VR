@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &21146352
 Transform:
   m_ObjectHideFlags: 0
@@ -729,6 +729,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 59433995}
+    - target: {fileID: 3228920796350004628, guid: fe2647af86eaf8e4f84d097bbeaf7d5d, type: 3}
+      propertyPath: _worldlogic
+      value: 
+      objectReference: {fileID: 1753602771}
     - target: {fileID: 3228920796350004628, guid: fe2647af86eaf8e4f84d097bbeaf7d5d, type: 3}
       propertyPath: _ReelPullSpeed
       value: 50
@@ -1338,7 +1342,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4266640295717640279, guid: beb4e2871579447497fe41dfb108e2cd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266640295717640279, guid: beb4e2871579447497fe41dfb108e2cd, type: 3}
+      propertyPath: m_TagString
+      value: GrappleTo
       objectReference: {fileID: 0}
     - target: {fileID: 4266640295717640281, guid: beb4e2871579447497fe41dfb108e2cd, type: 3}
       propertyPath: m_LocalScale.x
@@ -1412,7 +1420,7 @@ GameObject:
   - component: {fileID: 1753602771}
   m_Layer: 0
   m_Name: Worldlogic
-  m_TagString: Untagged
+  m_TagString: Logic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1429,6 +1437,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfbc88449704ecd41b0762b24d9b6f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Inv: []
+  _Player: {fileID: 59433995}
+  _RightStick: {fileID: -8666952849799569744, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!4 &1753602772
 Transform:
   m_ObjectHideFlags: 0
@@ -1580,6 +1591,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 59433995}
+    - target: {fileID: 3228920796350004628, guid: fe2647af86eaf8e4f84d097bbeaf7d5d, type: 3}
+      propertyPath: _worldlogic
+      value: 
+      objectReference: {fileID: 1753602771}
     - target: {fileID: 3228920796350004628, guid: fe2647af86eaf8e4f84d097bbeaf7d5d, type: 3}
       propertyPath: _ReelPullSpeed
       value: 100
