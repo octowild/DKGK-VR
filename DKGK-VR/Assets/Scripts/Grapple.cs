@@ -26,7 +26,9 @@ public class Grapple : MonoBehaviour
 
 
     public float _GrappleHeadSpeed = 20f;
-    public float _ReelPullSpeed = 50f;
+    public float _ReelPullSpeed = 200f;
+    public float _maxswingdis = 25f;
+    public float _hookgrav=1f;
    // private InputActionReference _RH;
 
     private Vector3 _GunDir;
@@ -38,6 +40,9 @@ public class Grapple : MonoBehaviour
     public bool _released = false;
     public string _hitTag;
     public GameObject _hitTarget;
+
+    public LineRenderer _LineR;
+    public SpringJoint _joint;
 
     void Start()
     {
@@ -53,14 +58,13 @@ public class Grapple : MonoBehaviour
         _HeadS.HookHit.AddListener(OnHookHit);
     }
 
-  // add button for reeling
-  //move player
     void Update()
     {
         if (_Trig.action.triggered) GrappleShoot();
         if (_Reel.action.triggered && !_ready) _reeling = true;
         if (_Release.action.triggered)
         {
+            GrappleStop();
             _reeling=true;
             _released=true;
         }
@@ -69,31 +73,50 @@ public class Grapple : MonoBehaviour
         {
             _GunDir = (GrappleGun.transform.up * -1);          
         }
-        if (_Shooting && !_hookhit  &&!_reeling)
+        if (_Shooting && !_hookhit && !_reeling)
         {
-            GrappleHead.transform.position += _GunDir * _GrappleHeadSpeed * Time.deltaTime;
+            GrappleHead.transform.position += ((_GunDir * _GrappleHeadSpeed) 
+                +Vector3.down*Mathf.Lerp(0f,_hookgrav,0.02f)
+                )* Time.deltaTime;
+        }
+        if (_hookhit)
+        {
+            _joint=Player.gameObject.AddComponent<SpringJoint>();
+            _joint.autoConfigureConnectedAnchor = false;
+            _joint.connectedAnchor=GrappleHead.transform.position;
+
+            float _disbw = Vector3.Distance(Player.transform.position, GrappleHead.transform.position);
+            _joint.maxDistance = _disbw*0.8f;
+            _joint.minDistance = _disbw*0.25f;
+
+            _joint.spring = 4.5f;
+            _joint.damper = 7f;
+            _joint.massScale = 4.5f;
         }
         if (_reeling) {
             GrappleReel();
         }
+    }
 
-
+    public void LateUpdate()
+    {
+        DrawRope();
     }
     public void GrappleShoot()
     {
-        if (_ready) {
-            _Shooting = true;
-            _ready = false;
-            GrappleHead.transform.SetParent(null,true);
-        }
+        if (!_ready) return;
+        _Shooting = true;
+        _ready = false;
+        GrappleHead.transform.SetParent(null,true);
+        _LineR.positionCount = 2;
     }
-    //public void GrappleStop()
-    //{
+    public void GrappleStop()
+    {
         //for testing 
         //_reeling = true;
         //GrappleHead.transform.SetParent(GrappleGun.transform, true);
-
-    //}
+        Destroy(_joint);
+    }
     public void GrappleReel()
     {
         if (!_hookhit||_released)
@@ -109,7 +132,8 @@ public class Grapple : MonoBehaviour
                 //pulling player
                 _ReelDir = GrappleHead.transform.position - GrappleGun.transform.position;
                 //move player here
-                Player.transform.position += _ReelDir * Mathf.Lerp(0f, _ReelPullSpeed, 0.02f) * Time.deltaTime;
+                Prb.MovePosition(_ReelDir * Mathf.Lerp(0f, _ReelPullSpeed, 0.02f) * Time.deltaTime);
+                //Player.transform.position += _ReelDir * Mathf.Lerp(0f, _ReelPullSpeed, 0.002f) * Time.deltaTime;
                 //Prb.AddForce(_ReelDir.normalized*_ReelPullSpeed*Time.deltaTime);
             }else if (_hitTag == "GrapplePull")
             {
@@ -121,22 +145,7 @@ public class Grapple : MonoBehaviour
             
         }
 
-        if (_ReelDir.magnitude <= 2f)
-        {
-            GrappleHead.transform.position = BarrelPos.transform.position;
-            GrappleHead.transform.localRotation = Quaternion.Euler(0f,0f,0f); 
-            GrappleHead.transform.SetParent(GrappleGun.transform, true);
-            _hookhit = false;
-            _ready = true;
-            _Shooting = false;
-            _reeling = false;
-            _released = false;
-            if (_hitTag == "GrapplePull")
-            {
-                _hitTarget.transform.SetParent(null, true);
-            }
-        }
-        
+        if (_ReelDir.magnitude <= 2f) Reset();
     }
     public void OnHookHit(bool hookhit, GameObject hittarget)
     {
@@ -150,6 +159,21 @@ public class Grapple : MonoBehaviour
         GrappleHead.transform.position = BarrelPos.transform.position;
         GrappleHead.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
         GrappleHead.transform.SetParent(GrappleGun.transform, true);
+        if (_joint!=null) Destroy(_joint);
+        _LineR.positionCount = 0;
+        _hookhit = false;
+        _ready = true;
+        _Shooting = false;
+        _reeling = false;
+        _released = false;
+        if (_hitTag == "GrapplePull") _hitTarget.transform.SetParent(null, true);  
+    }
+
+    public void DrawRope()
+    {
+        if (_ready) return;
+        _LineR.SetPosition(0, BarrelPos.transform.position);
+        _LineR.SetPosition(1, GrappleHead.transform.position);
     }
     /*   private void OnGrab(SelectEnterEventArgs args)
        {
