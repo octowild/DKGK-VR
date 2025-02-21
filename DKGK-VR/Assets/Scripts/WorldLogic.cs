@@ -81,6 +81,13 @@ public class WorldLogic : MonoBehaviour
                 _dual = false;
                 _cansp = true;
                 break;
+            case 3:
+                _priwep = _Dualgun;
+                _secwep = null;
+                _dual = false;
+                _cansp = true;
+                break;
+
             default:
                 _priwep=null;
                 _secwep=null;
@@ -88,15 +95,24 @@ public class WorldLogic : MonoBehaviour
                 _cansp=false;
                 break;
         }
-
-        if (_RGrip.action.triggered && _cansp && !_spawnonce)
+        if (_wepcount < 0)
+        {
+            _wepcount = 0;
+            _cansp = false;
+        }
+        else if (_wepcount >2)
+        {
+            _wepcount = 2;
+            _cansp = false;
+        }
+        if (_RS.x <= -0.5|| _RS.x >= 0.5 && _cansp && !_spawnonce)
         {
             Destroy(_currpriwep);
             Destroy(_currsecwep);
             _spawnonce = true;
         }
 
-        if (_RGrip.action.triggered&&_cansp&&_spawnonce)
+        if (_RS.x <= -0.5 || _RS.x >= 0.5 && _cansp&&_spawnonce)
         {
             _currpriwep=Instantiate(_priwep,_RightDI.attachTransform.position,_RightDI.attachTransform.rotation);
             _prigrabI = _currpriwep.GetComponent<XRGrabInteractable>();
@@ -115,9 +131,8 @@ public class WorldLogic : MonoBehaviour
                 _secScript._Release = _ReleaseL;
             }
             _spawnonce = false;
-
-
         }
+
     }
 
 }

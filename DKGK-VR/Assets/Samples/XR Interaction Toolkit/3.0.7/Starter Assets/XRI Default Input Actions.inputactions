@@ -470,6 +470,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "release",
+                    "type": "Button",
+                    "id": "73b9e05c-8c3c-4b19-96db-38b4192efca6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -921,6 +930,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "08a28c24-fc96-4651-bb02-6bee22d5f9fe",
+                    "path": "<XRController>{LeftHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "release",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1630,6 +1650,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "release",
+                    "type": "Button",
+                    "id": "65f881e9-044b-4d74-9e0b-8ef734fdac77",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -2158,6 +2187,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Stick left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e0e2b14e-9c74-4ad6-91cf-0799106258bf",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "release",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4433316962949731139}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SecAttachTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 753479950119121841}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BarrlePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8981097472129610473}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PriAttachTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,6 +160,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cf952950d8d8fc14f9e706899de73f21, type: 3}
       propertyPath: m_Name
       value: RocketGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cf952950d8d8fc14f9e706899de73f21, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -363,10 +367,11 @@ MonoBehaviour:
   GrappleHead: {fileID: 8127932605504158951}
   BarrelPos: {fileID: 3327863862719396103}
   _HeadS: {fileID: 8247704012511932802}
-  _ReelR: {fileID: -573836161567895667, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _ReelL: {fileID: -3616242679283299208, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _GrappleHeadSpeed: 20
-  _ReelPullSpeed: 100
+  _Trig: {fileID: 0}
+  _Reel: {fileID: 0}
+  _Release: {fileID: 0}
+  _GrappleHeadSpeed: 40
+  _ReelPullSpeed: 200
   _Shooting: 0
   _ready: 1
   _reeling: 0
@@ -469,6 +474,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 748deb0a15a9f844cab966f41b9ee467, type: 3}
       propertyPath: m_Name
       value: grappleHead
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 748deb0a15a9f844cab966f41b9ee467, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
