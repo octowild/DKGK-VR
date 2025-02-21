@@ -3,18 +3,23 @@ using UnityEngine;
 public class todo : MonoBehaviour
 {
 /*character physics
- *      swinging
- * rope
- *      rendering
+ *      swinging/grapple force
+ *      change dir mid swing
+
+
  *      let go when rope collides
  *bindings
  *      wep wheel
- *      press once instead of hold to hold gun
- *      hook release button
  *other weps
       figure out how bow and arrow works
- *      
  *      zipline
+ *      rocket
+ *
+ *ui
+ *  hud
+ *  title
+ *  leaderboard
+ *      
  *      
  *minors changes
  *increase hook speed
