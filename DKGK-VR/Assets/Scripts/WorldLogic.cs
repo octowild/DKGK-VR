@@ -24,7 +24,7 @@ public class WorldLogic : MonoBehaviour
 
     //prefabs
     public int _wepcount = 0;
-    public bool _dual;
+    public bool _dual=false;
     public bool _cansp=false;
     public bool _spawnonce = true;
     public bool _selectonce = true;
@@ -55,47 +55,42 @@ public class WorldLogic : MonoBehaviour
         _RS = _RightStick.action.ReadValue<Vector2>();
         if (_RS.x<=-0.5&&_selectonce)
         {
-            _wepcount += 1;
+            if (_wepcount < 3) _wepcount += 1;
+            else _wepcount = 0;
             _selectonce = false;
         }
         else if (_RS.x >= 0.5&&_selectonce) { 
-            _wepcount -= 1;
+            if (_wepcount>0)_wepcount -= 1;
+            else _wepcount = 3;
             _selectonce=false;
         }
         if (_RS.x == 0f) { _selectonce = true; }
         switch (_wepcount)
         {
             case 0:
-                _priwep = null;
-                _secwep = null;
-                _dual = false;
-                _cansp = false;
-                break;
-            case 1:
                 _priwep = _Dualgun;
                 _secwep = _Dualgun;
                 _dual = true;
                 _cansp = true;
                 break;
-            case 2:
+            case 1:
                 _priwep = _RocketGun;
                 _secwep = null;
                 _dual = false;
                 _cansp = true;
                 break;
-            case 3:
-                _priwep = _Arrow;
-                _secwep = _Bow;
+            case 2:
+                _priwep = _Dualgun;
+                _secwep = _RocketGun;
                 _dual = true;
                 _cansp = true;
                 break;
-            case 4:
+            case 3:
                 _priwep = _Dualgun;
                 _secwep = null;
                 _dual = false;
                 _cansp = true;
                 break;
-
             default:
                 _priwep=null;
                 _secwep=null;
@@ -103,31 +98,36 @@ public class WorldLogic : MonoBehaviour
                 _cansp=false;
                 break;
         }
-        if (_wepcount < 0)
+
+
+        if (_priScript != null)
         {
-            _wepcount = 0;
-        }
-        else if (_wepcount >2)
-        {
-            _wepcount = 2;
+            if (_priScript._hookhit)
+            {
+                _cansp = false;
+            }
+            else if (!_priScript._hookhit) { 
+                _cansp = true;
+            }
+            if (_secScript!=null)
+            {
+                if (_secScript._hookhit) _cansp=false;
+                else if (!_secScript._hookhit) _cansp=true;
+            }
         }
 
-        if (_priScript._hookhit)_spawnonce = true;
-        else if (!_priScript._hookhit) _spawnonce = false;
-        if (_dual)
+        if ((_RS.x <= -0.5|| _RS.x >= 0.5) && _cansp && !_spawnonce)
         {
-            if (_secScript._hookhit) _spawnonce = true;
-            else if (!_secScript._hookhit) _spawnonce = false;
-        }
-
-        if (_RS.x <= -0.5|| _RS.x >= 0.5 && _cansp && !_spawnonce)
-        {
+            if (_priScript!=null)_priScript.Reset();
+            if (_secScript != null) { _secScript.Reset(); }
             Destroy(_currpriwep);
+            //_priScript = null;
             Destroy(_currsecwep);
+            //_secScript = null;
             _spawnonce = true;
         }
 
-        if (_RS.x <= -0.5 || _RS.x >= 0.5 && _cansp&&_spawnonce)
+        if ((_RS.x <= -0.5 || _RS.x >= 0.5) && _cansp&&_spawnonce)
         {
             _currpriwep=Instantiate(_priwep,_RightDI.attachTransform.position,_RightDI.attachTransform.rotation);
             _prigrabI = _currpriwep.GetComponent<XRGrabInteractable>();

@@ -140,33 +140,38 @@ public class Grapple : MonoBehaviour
     }
     public void OnHookHit(bool hookhit, GameObject hittarget)
     {
-        Debug.Log("eee");
         _hookhit = hookhit;
         _hitTarget = hittarget;
         _hitTag = hittarget.transform.tag;
 
     }
- /*   private void OnGrab(SelectEnterEventArgs args)
+    public void Reset()
     {
-
-        if (args.interactorObject.transform.tag=="LeftHand")
-        {
-            _RH = _ReelL;
-        }
-        else if (args.interactorObject.transform.tag == "RightHand")
-        {
-            _RH = _ReelR;
-        }
-    }
-    public void OnRelease()
-    {
-        _hookhit = false;
-        _ready = true;
-        _Shooting = false;
-        _reeling = false;
         GrappleHead.transform.position = BarrelPos.transform.position;
+        GrappleHead.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
         GrappleHead.transform.SetParent(GrappleGun.transform, true);
-        //_RH = null;
     }
- */
+    /*   private void OnGrab(SelectEnterEventArgs args)
+       {
+
+           if (args.interactorObject.transform.tag=="LeftHand")
+           {
+               _RH = _ReelL;
+           }
+           else if (args.interactorObject.transform.tag == "RightHand")
+           {
+               _RH = _ReelR;
+           }
+       }
+       public void OnRelease()
+       {
+           _hookhit = false;
+           _ready = true;
+           _Shooting = false;
+           _reeling = false;
+           GrappleHead.transform.position = BarrelPos.transform.position;
+           GrappleHead.transform.SetParent(GrappleGun.transform, true);
+           //_RH = null;
+       }
+    */
 }
