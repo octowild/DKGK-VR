@@ -102,17 +102,15 @@ public class WorldLogic : MonoBehaviour
 
         if (_priScript != null)
         {
-            if (_priScript._hookhit)
+            if (_secScript != null)
             {
-                _cansp = false;
+                if (_priScript._hookhit|| _secScript._hookhit) _cansp = false;  
+                else _cansp = true;
             }
-            else if (!_priScript._hookhit) { 
-                _cansp = true;
-            }
-            if (_secScript!=null)
+            else
             {
-                if (_secScript._hookhit) _cansp=false;
-                else if (!_secScript._hookhit) _cansp=true;
+                if (_priScript._hookhit)_cansp = false;
+                else _cansp = true;
             }
         }
 
