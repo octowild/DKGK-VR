@@ -16,6 +16,7 @@ public class continousMovementPhysics : MonoBehaviour
     public bool _IsGrounded = false;
 
     private Vector2 _walkAxis;
+    private bool _isWalking;
 
     void Start()
     {
@@ -30,7 +31,9 @@ public class continousMovementPhysics : MonoBehaviour
     private void FixedUpdate()
     {
         _IsGrounded = GroundCheck();
-        if (_IsGrounded)
+        if (_walkAxis.magnitude<=0.1f)_isWalking = false;
+        else _isWalking = true;
+        if (_IsGrounded&&_isWalking)
         {
             Quaternion yaw = Quaternion.Euler(0, _DirSrc.eulerAngles.y, 0);
             Vector3 _dir = yaw * new Vector3(_walkAxis.x, 0, _walkAxis.y);
