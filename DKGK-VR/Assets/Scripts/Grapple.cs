@@ -140,6 +140,7 @@ public class Grapple : MonoBehaviour
     }
     public void OnHookHit(bool hookhit, GameObject hittarget)
     {
+        Debug.Log("eee");
         _hookhit = hookhit;
         _hitTarget = hittarget;
         _hitTag = hittarget.transform.tag;

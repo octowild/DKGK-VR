@@ -34,6 +34,8 @@ public class WorldLogic : MonoBehaviour
     public GameObject _currsecwep;
     public GameObject _Dualgun;
     public GameObject _RocketGun;
+    public GameObject _Bow;
+    public GameObject _Arrow;
 
 
 
@@ -82,6 +84,12 @@ public class WorldLogic : MonoBehaviour
                 _cansp = true;
                 break;
             case 3:
+                _priwep = _Arrow;
+                _secwep = _Bow;
+                _dual = true;
+                _cansp = true;
+                break;
+            case 4:
                 _priwep = _Dualgun;
                 _secwep = null;
                 _dual = false;
@@ -98,13 +106,20 @@ public class WorldLogic : MonoBehaviour
         if (_wepcount < 0)
         {
             _wepcount = 0;
-            _cansp = false;
         }
         else if (_wepcount >2)
         {
             _wepcount = 2;
-            _cansp = false;
         }
+
+        if (_priScript._hookhit)_spawnonce = true;
+        else if (!_priScript._hookhit) _spawnonce = false;
+        if (_dual)
+        {
+            if (_secScript._hookhit) _spawnonce = true;
+            else if (!_secScript._hookhit) _spawnonce = false;
+        }
+
         if (_RS.x <= -0.5|| _RS.x >= 0.5 && _cansp && !_spawnonce)
         {
             Destroy(_currpriwep);
