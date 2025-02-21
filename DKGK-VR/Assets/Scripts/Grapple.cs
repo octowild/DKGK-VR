@@ -27,7 +27,7 @@ public class Grapple : MonoBehaviour
 
     public float _GrappleHeadSpeed = 20f;
     public float _ReelPullSpeed = 200f;
-    public float _maxswingdis = 25f;
+    public float _maxswingdis = 100f;
     public float _hookgrav=1f;
    // private InputActionReference _RH;
 
@@ -43,6 +43,8 @@ public class Grapple : MonoBehaviour
 
     public LineRenderer _LineR;
     public SpringJoint _joint;
+
+    private float _len;
 
     void Start()
     {
@@ -73,21 +75,24 @@ public class Grapple : MonoBehaviour
         {
             _GunDir = (GrappleGun.transform.up * -1);          
         }
+        _len = Vector3.Distance(Player.transform.position, GrappleHead.transform.position);
         if (_Shooting && !_hookhit && !_reeling)
         {
-            GrappleHead.transform.position += ((_GunDir * _GrappleHeadSpeed) 
-                +Vector3.down*Mathf.Lerp(0f,_hookgrav,0.02f)
-                )* Time.deltaTime;
+            if (_len<= _maxswingdis)
+            {
+                GrappleHead.transform.position += ((_GunDir * _GrappleHeadSpeed)
+                    + Vector3.down * Mathf.Lerp(0f, _hookgrav, 0.02f)
+                    ) * Time.deltaTime;
+            }
         }
         if (_hookhit)
         {
             _joint=Player.gameObject.AddComponent<SpringJoint>();
             _joint.autoConfigureConnectedAnchor = false;
             _joint.connectedAnchor=GrappleHead.transform.position;
-
-            float _disbw = Vector3.Distance(Player.transform.position, GrappleHead.transform.position);
-            _joint.maxDistance = _disbw*0.8f;
-            _joint.minDistance = _disbw*0.25f;
+          
+            _joint.maxDistance = _len*0.8f;
+            _joint.minDistance = _len*0.25f;
 
             _joint.spring = 4.5f;
             _joint.damper = 7f;
@@ -132,7 +137,7 @@ public class Grapple : MonoBehaviour
                 //pulling player
                 _ReelDir = GrappleHead.transform.position - GrappleGun.transform.position;
                 //move player here
-                Prb.MovePosition(_ReelDir * Mathf.Lerp(0f, _ReelPullSpeed, 0.02f) * Time.deltaTime);
+                Prb.AddForce(_ReelDir.normalized * Mathf.Lerp(0f, _ReelPullSpeed, 0.2f) * Time.deltaTime);
                 //Player.transform.position += _ReelDir * Mathf.Lerp(0f, _ReelPullSpeed, 0.002f) * Time.deltaTime;
                 //Prb.AddForce(_ReelDir.normalized*_ReelPullSpeed*Time.deltaTime);
             }else if (_hitTag == "GrapplePull")
