@@ -5,6 +5,8 @@ public class todo : MonoBehaviour
 /*character physics
  *      swinging/grapple force
  *      change dir mid swing
+ *      
+ *      understand unity physics
 
 
  *      let go when rope collides

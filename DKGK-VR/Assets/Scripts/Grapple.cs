@@ -64,7 +64,7 @@ public class Grapple : MonoBehaviour
     {
         if (_Trig.action.triggered) GrappleShoot();
         if (_Reel.action.triggered && !_ready) _reeling = true;
-        if (_Release.action.triggered)
+        if (_Trig.action.WasReleasedThisFrame())
         {
             GrappleStop();
             _reeling=true;

@@ -28,6 +28,7 @@ public class WorldLogic : MonoBehaviour
     public bool _cansp=false;
     public bool _spawnonce = true;
     public bool _selectonce = true;
+    public int _maxwep = 3;
     public GameObject _priwep;
     public GameObject _secwep;
     public GameObject _currpriwep;
@@ -55,13 +56,13 @@ public class WorldLogic : MonoBehaviour
         _RS = _RightStick.action.ReadValue<Vector2>();
         if (_RS.x<=-0.5&&_selectonce)
         {
-            if (_wepcount < 3) _wepcount += 1;
+            if (_wepcount < _maxwep) _wepcount += 1;
             else _wepcount = 0;
             _selectonce = false;
         }
         else if (_RS.x >= 0.5&&_selectonce) { 
             if (_wepcount>0)_wepcount -= 1;
-            else _wepcount = 3;
+            else _wepcount = _maxwep;
             _selectonce=false;
         }
         if (_RS.x == 0f) { _selectonce = true; }
