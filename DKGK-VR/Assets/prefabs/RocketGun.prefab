@@ -355,6 +355,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cf952950d8d8fc14f9e706899de73f21, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7262121487118165092}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cf952950d8d8fc14f9e706899de73f21, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9190632390048174032}
   m_SourcePrefab: {fileID: 100100000, guid: cf952950d8d8fc14f9e706899de73f21, type: 3}
 --- !u!1 &8409366624866531697 stripped
 GameObject:
@@ -525,6 +528,7 @@ MonoBehaviour:
   _worldlogic: {fileID: 0}
   Player: {fileID: 0}
   Prb: {fileID: 0}
+  _handler: {fileID: 9190632390048174032}
   GrappleGun: {fileID: 8409366624866531697}
   GrappleHead: {fileID: 3377646418435349888}
   BarrelPos: {fileID: 3327863862719396103}
@@ -673,6 +677,24 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &9190632390048174032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8409366624866531697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45480f8a5ee103548bbbb043e6993f1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wep: {fileID: 8409366624866531697}
+  _hookhit: 0
+  _resetRequest: 0
+  _Trig: {fileID: 0}
+  _Reel: {fileID: 0}
+  _Release: {fileID: 0}
 --- !u!4 &9223304757928633291 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cf952950d8d8fc14f9e706899de73f21, type: 3}

@@ -33,6 +33,7 @@ public class WorldLogic : MonoBehaviour
     public GameObject _secwep;
     public GameObject _currpriwep;
     public GameObject _currsecwep;
+    
     public GameObject _Dualgun;
     public GameObject _RocketGun;
     public GameObject _Bow;
@@ -47,8 +48,8 @@ public class WorldLogic : MonoBehaviour
  
     private IXRSelectInteractable _prigrabI;
     private IXRSelectInteractable _secgrabI;
-    private Grapple _priScript;
-    private Grapple _secScript;
+    private weaponHandler _priScript;
+    private weaponHandler _secScript;
     void Update()
     {
         //_Inv.Append("Dual Guns");
@@ -118,7 +119,7 @@ public class WorldLogic : MonoBehaviour
         if ((_RS.x <= -0.5|| _RS.x >= 0.5) && _cansp && !_spawnonce)
         {
             if (_priScript!=null)_priScript.Reset();
-            if (_secScript != null) { _secScript.Reset(); }
+            if (_secScript!= null) { _secScript.Reset(); }
             Destroy(_currpriwep);
             //_priScript = null;
             Destroy(_currsecwep);
@@ -131,7 +132,7 @@ public class WorldLogic : MonoBehaviour
             _currpriwep=Instantiate(_priwep,_RightDI.attachTransform.position,_RightDI.attachTransform.rotation);
             _prigrabI = _currpriwep.GetComponent<XRGrabInteractable>();
             _RightDI.StartManualInteraction(_prigrabI);
-            _priScript=_currpriwep.GetComponent<Grapple>();
+            _priScript=_currpriwep.GetComponent<weaponHandler>();
             _priScript._Trig = _TrigR;
             _priScript._Reel = _ReelR;
             _priScript._Release = _ReleaseR;
@@ -139,7 +140,7 @@ public class WorldLogic : MonoBehaviour
                 _currsecwep = Instantiate(_secwep, _LeftDI.attachTransform.position, _LeftDI.attachTransform.rotation);
                 _secgrabI = _currsecwep.GetComponent<XRGrabInteractable>();
                 _LeftDI.StartManualInteraction(_secgrabI);
-                _secScript=_currsecwep.GetComponent<Grapple>();
+                _secScript=_currsecwep.GetComponent<weaponHandler>();
                 _secScript._Trig = _TrigL;
                 _secScript._Reel = _ReelL;
                 _secScript._Release = _ReleaseL;

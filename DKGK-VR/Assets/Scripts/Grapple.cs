@@ -12,6 +12,7 @@ public class Grapple : MonoBehaviour
     public WorldLogic _worldlogic;
     public GameObject Player;
     public Rigidbody Prb;
+    public weaponHandler _handler;
     public GameObject GrappleGun;
     public GameObject GrappleHead;
     public GameObject BarrelPos;
@@ -51,6 +52,9 @@ public class Grapple : MonoBehaviour
         _worldlogic =GameObject.FindGameObjectWithTag("Logic").GetComponent<WorldLogic>();
         Player = _worldlogic._Player;
         Prb = Player.transform.GetChild(0).GetComponent<Rigidbody>();
+        _Trig = _handler._Trig;
+        _Reel = _handler._Reel;
+        _Release = _handler._Release;
         //_grabinteractable = GetComponent<XRGrabInteractable>();
         //_grabinteractable.activated.AddListener(x=>GrappleShoot());
         //_grabinteractable.deactivated.AddListener(x => GrappleStop());
@@ -64,12 +68,14 @@ public class Grapple : MonoBehaviour
     {
         if (_Trig.action.triggered) GrappleShoot();
         if (_Reel.action.triggered && !_ready) _reeling = true;
+        if (_Reel.action.WasReleasedThisFrame()) _reeling = false;
         if (_Trig.action.WasReleasedThisFrame())
         {
             GrappleStop();
             _reeling=true;
             _released=true;
         }
+
         //_hookhit=_HeadS._hit;
         if (!_Shooting)
         {
@@ -98,7 +104,7 @@ public class Grapple : MonoBehaviour
             _joint.damper = 7f;
             _joint.massScale = 4.5f;
         }
-        
+        _handler._hookhit = _hookhit;
     }
 
     public void FixedUpdate()
@@ -158,6 +164,7 @@ public class Grapple : MonoBehaviour
         }
 
         if (_ReelDir.magnitude <= 2f) Reset();
+        if (_handler._resetRequest) Reset();
     }
     public void OnHookHit(bool hookhit, GameObject hittarget)
     {
