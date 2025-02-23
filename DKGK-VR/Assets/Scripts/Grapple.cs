@@ -29,7 +29,7 @@ public class Grapple : MonoBehaviour
     public float _GrappleHeadSpeed = 20f;
     public float _ReelPullSpeed = 200f;
     public float _maxswingdis = 100f;
-    public float _hookgrav=1f;
+    public float _hookgrav=10f;
    // private InputActionReference _RH;
 
     private Vector3 _GunDir;
@@ -91,6 +91,12 @@ public class Grapple : MonoBehaviour
                     + Vector3.down * Mathf.Lerp(0f, _hookgrav, 0.02f)
                     ) * Time.deltaTime;
             }
+            else
+            {
+                GrappleHead.transform.position += (Vector3.Lerp((_GunDir * _GrappleHeadSpeed),
+                     (Vector3.down * _hookgrav),0.2f)
+                    ) * Time.deltaTime;
+            }
         }
         if (_hookhit&&!_isJoint)
         {
@@ -107,6 +113,7 @@ public class Grapple : MonoBehaviour
             _isJoint = true;
         }
         _handler._hookhit = _hookhit;
+        if (_handler._resetRequest) Reset();
     }
 
     public void FixedUpdate()
@@ -167,7 +174,7 @@ public class Grapple : MonoBehaviour
         }
 
         if (_ReelDir.magnitude <= 2f) Reset();
-        if (_handler._resetRequest) Reset();
+        
     }
     public void OnHookHit(bool hookhit, GameObject hittarget)
     {
