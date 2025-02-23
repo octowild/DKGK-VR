@@ -7,6 +7,9 @@ public class todo : MonoBehaviour
  *      change dir mid swing
  *      
  *      understand unity physics
+ *      
+ *      arrow/quiver
+ *      bow
 
 
  *      let go when rope collides
