@@ -46,6 +46,7 @@ public class Grapple : MonoBehaviour
     public SpringJoint _joint;
 
     private float _len;
+    public bool _isJoint=false;
 
     void Start()
     {
@@ -91,9 +92,9 @@ public class Grapple : MonoBehaviour
                     ) * Time.deltaTime;
             }
         }
-        if (_hookhit)
+        if (_hookhit&&!_isJoint)
         {
-            _joint=Player.gameObject.AddComponent<SpringJoint>();
+            _joint=Player.transform.GetChild(0).gameObject.AddComponent<SpringJoint>();
             _joint.autoConfigureConnectedAnchor = false;
             _joint.connectedAnchor=GrappleHead.transform.position;
           
@@ -103,6 +104,7 @@ public class Grapple : MonoBehaviour
             _joint.spring = 4.5f;
             _joint.damper = 7f;
             _joint.massScale = 4.5f;
+            _isJoint = true;
         }
         _handler._hookhit = _hookhit;
     }
@@ -133,6 +135,7 @@ public class Grapple : MonoBehaviour
         //_reeling = true;
         //GrappleHead.transform.SetParent(GrappleGun.transform, true);
         Destroy(_joint);
+        _isJoint=false;
     }
     public void GrappleReel()
     {
@@ -181,6 +184,7 @@ public class Grapple : MonoBehaviour
         Prb.useGravity=true;
         if (_joint!=null) Destroy(_joint);
         _LineR.positionCount = 0;
+        _isJoint = false;
         _hookhit = false;
         _ready = true;
         _Shooting = false;

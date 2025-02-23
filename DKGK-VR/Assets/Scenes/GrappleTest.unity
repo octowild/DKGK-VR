@@ -1390,7 +1390,7 @@ MonoBehaviour:
   _TrigR: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _TrigL: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _ReelR: {fileID: 2299736017791020862, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _ReelL: {fileID: -8148491892877670638, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _ReelL: {fileID: -7003486972063880533, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _ReleaseR: {fileID: 3464299882828796646, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _ReleaseL: {fileID: 2780777060159461492, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _wepcount: 0
@@ -1398,6 +1398,7 @@ MonoBehaviour:
   _cansp: 0
   _spawnonce: 1
   _selectonce: 1
+  _maxwep: 3
   _priwep: {fileID: 0}
   _secwep: {fileID: 0}
   _currpriwep: {fileID: 0}
