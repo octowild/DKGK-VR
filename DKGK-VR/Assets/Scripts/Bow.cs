@@ -2,13 +2,18 @@ using UnityEngine;
 
 public class Bow : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public weaponHandler _handler;
+    public GameObject _Ashelf;
+    public GameObject _Anock;
+    public WorldLogic _worldlogic;
+    public GameObject _Arrow;
     void Start()
     {
-        
+        _worldlogic = GameObject.FindGameObjectWithTag("Logic").GetComponent<WorldLogic>();
+        _Arrow = _worldlogic._currpriwep;
     }
 
-    // Update is called once per frame
     void Update()
     {
         

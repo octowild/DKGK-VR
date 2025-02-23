@@ -2,7 +2,6 @@ using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR;
-using UnityEngine.XR.Hands;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
@@ -11,6 +10,7 @@ public class Grapple : MonoBehaviour
 {
     public WorldLogic _worldlogic;
     public GameObject Player;
+    public GameObject _playerXR;
     public Rigidbody Prb;
     public weaponHandler _handler;
     public GameObject GrappleGun;
@@ -52,7 +52,8 @@ public class Grapple : MonoBehaviour
     {
         _worldlogic =GameObject.FindGameObjectWithTag("Logic").GetComponent<WorldLogic>();
         Player = _worldlogic._Player;
-        Prb = Player.transform.GetChild(0).GetComponent<Rigidbody>();
+        _playerXR=Player.transform.GetChild(0).gameObject;
+        Prb = _playerXR.GetComponent<Rigidbody>();
         _Trig = _handler._Trig;
         _Reel = _handler._Reel;
         _Release = _handler._Release;
@@ -100,7 +101,7 @@ public class Grapple : MonoBehaviour
         }
         if (_hookhit&&!_isJoint)
         {
-            _joint=Player.transform.GetChild(0).gameObject.AddComponent<SpringJoint>();
+            _joint=_playerXR.AddComponent<SpringJoint>();
             _joint.autoConfigureConnectedAnchor = false;
             _joint.connectedAnchor=GrappleHead.transform.position;
           
