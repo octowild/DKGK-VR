@@ -37,7 +37,7 @@ public class WorldLogic : MonoBehaviour
     public GameObject _Dualgun;
     public GameObject _RocketGun;
     public GameObject _Bow;
-    public GameObject _Arrow;
+    public GameObject _Quiver;
 
 
 
@@ -82,8 +82,8 @@ public class WorldLogic : MonoBehaviour
                 _cansp = true;
                 break;
             case 2:
-                _priwep = _Dualgun;
-                _secwep = _RocketGun;
+                _priwep = _Quiver;
+                _secwep = _Bow;
                 _dual = true;
                 _cansp = true;
                 break;

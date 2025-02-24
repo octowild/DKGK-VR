@@ -161,7 +161,7 @@ public class Grapple : MonoBehaviour
                 _ReelDir = GrappleHead.transform.position - GrappleGun.transform.position;
                 //move player here
                 Prb.AddForce(_ReelDir.normalized * Mathf.Lerp(0f, _ReelPullSpeed, 0.2f) * Time.deltaTime);
-                Prb.useGravity = false;
+                //Prb.useGravity = false;
                 //Player.transform.position += _ReelDir * Mathf.Lerp(0f, _ReelPullSpeed, 0.002f) * Time.deltaTime;
                 //Prb.AddForce(_ReelDir.normalized*_ReelPullSpeed*Time.deltaTime);
             }else if (_hitTag == "GrapplePull")
@@ -189,7 +189,7 @@ public class Grapple : MonoBehaviour
         GrappleHead.transform.position = BarrelPos.transform.position;
         GrappleHead.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
         GrappleHead.transform.SetParent(GrappleGun.transform, true);
-        Prb.useGravity=true;
+        //Prb.useGravity=true;
         if (_joint!=null) Destroy(_joint);
         _LineR.positionCount = 0;
         _isJoint = false;

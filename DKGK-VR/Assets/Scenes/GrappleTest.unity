@@ -1515,7 +1515,7 @@ MonoBehaviour:
   _Dualgun: {fileID: 4458003642551422716, guid: fe2647af86eaf8e4f84d097bbeaf7d5d, type: 3}
   _RocketGun: {fileID: 8409366624866531697, guid: 524f5e7094e0484498f87eddcbab2093, type: 3}
   _Bow: {fileID: 7556099460117650610, guid: b81d1d6fa32e5a14a9e8c964c9e402ea, type: 3}
-  _Arrow: {fileID: 3899956961319350125, guid: 5b690412ae41d6a4bb46351ff20ebd81, type: 3}
+  _Quiver: {fileID: 4863440620596763813, guid: 060c0207f9f9012499fd2ad2b84ea935, type: 3}
   _RGrip: {fileID: 2299736017791020862, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _RightStick: {fileID: -8666952849799569744, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _RS: {x: 0, y: 0}
