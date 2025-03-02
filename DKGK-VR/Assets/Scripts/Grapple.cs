@@ -25,7 +25,7 @@ public class Grapple : MonoBehaviour
     public InputActionReference _Release;
 
 
-
+    public float _springLen = 10f;
     public float _GrappleHeadSpeed = 20f;
     public float _ReelPullSpeed = 200f;
     public float _maxswingdis = 100f;
@@ -70,7 +70,7 @@ public class Grapple : MonoBehaviour
     {
         if (_Trig.action.triggered) GrappleShoot();
         if (_Reel.action.triggered && !_ready) _reeling = true;
-        if (_Reel.action.WasReleasedThisFrame()) _reeling = false;
+        if (_Reel.action.WasReleasedThisFrame()&&_hookhit) _reeling = false;
         if (_Trig.action.WasReleasedThisFrame())
         {
             GrappleStop();
@@ -105,8 +105,8 @@ public class Grapple : MonoBehaviour
             _joint.autoConfigureConnectedAnchor = false;
             _joint.connectedAnchor=GrappleHead.transform.position;
           
-            _joint.maxDistance = _len*0.8f;
-            _joint.minDistance = _len*0.25f;
+            _joint.maxDistance = _springLen*0.8f;
+            _joint.minDistance = _springLen * 0.25f;
 
             _joint.spring = 4.5f;
             _joint.damper = 7f;
@@ -161,10 +161,14 @@ public class Grapple : MonoBehaviour
                 _ReelDir = GrappleHead.transform.position - GrappleGun.transform.position;
                 //move player here
                 Prb.AddForce(_ReelDir.normalized * Mathf.Lerp(0f, _ReelPullSpeed, 0.2f) * Time.deltaTime);
+                float distancefrompoint=_ReelDir.magnitude;
+                _joint.maxDistance = distancefrompoint * 0.8f;
+                _joint.minDistance = distancefrompoint * 0.25f;
                 //Prb.useGravity = false;
                 //Player.transform.position += _ReelDir * Mathf.Lerp(0f, _ReelPullSpeed, 0.002f) * Time.deltaTime;
                 //Prb.AddForce(_ReelDir.normalized*_ReelPullSpeed*Time.deltaTime);
-            }else if (_hitTag == "GrapplePull")
+            }
+            else if (_hitTag == "GrapplePull")
             {
                 //pulling obj to player
                 _ReelDir = GrappleGun.transform.position - GrappleHead.transform.position;

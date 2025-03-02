@@ -362,6 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _worldlogic: {fileID: 0}
   Player: {fileID: 0}
+  _playerXR: {fileID: 0}
   Prb: {fileID: 0}
   _handler: {fileID: 1894406589499668061}
   GrappleGun: {fileID: 4458003642551422716}
@@ -371,7 +372,8 @@ MonoBehaviour:
   _Trig: {fileID: 0}
   _Reel: {fileID: 0}
   _Release: {fileID: 0}
-  _GrappleHeadSpeed: 10
+  _springLen: 10
+  _GrappleHeadSpeed: 30
   _ReelPullSpeed: 50
   _maxswingdis: 25
   _hookgrav: 1
@@ -384,6 +386,7 @@ MonoBehaviour:
   _hitTarget: {fileID: 0}
   _LineR: {fileID: 2080058314480448330}
   _joint: {fileID: 0}
+  _isJoint: 0
 --- !u!120 &2080058314480448330
 LineRenderer:
   serializedVersion: 2
@@ -502,6 +505,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wep: {fileID: 4458003642551422716}
+  _hookhit: 0
+  _resetRequest: 0
   _Trig: {fileID: 0}
   _Reel: {fileID: 0}
   _Release: {fileID: 0}
