@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Quiver : MonoBehaviour
 {
@@ -10,17 +11,23 @@ public class Quiver : MonoBehaviour
     public Transform _attach;
     public GameObject _arrowprefab;
 
-
+    public InputActionReference _trig;
     public bool _drawarrow=false;
+    public bool _ready = true;
     void Start()
     {
         _worldlogic = GameObject.FindGameObjectWithTag("Logic").GetComponent<WorldLogic>();
         _bow=_worldlogic._currsecwep;
+        _trig = _handler._Trig;
     }
 
 
     void Update()
     {
+        if (_trig.action.triggered&&_ready)
+        {
+            _drawarrow = true;
+        }
         //if (_drawarrow) DrawArrow();
     }
 
