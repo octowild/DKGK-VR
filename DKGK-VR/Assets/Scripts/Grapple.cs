@@ -27,6 +27,7 @@ public class Grapple : MonoBehaviour
 
     public float _springLen = 10f;
     public float _GrappleHeadSpeed = 20f;
+    public float _GrappleHeadreelSpeed = 20f;
     public float _ReelPullSpeed = 200f;
     public float _maxswingdis = 100f;
     public float _hookgrav=10f;
@@ -105,8 +106,8 @@ public class Grapple : MonoBehaviour
             _joint.autoConfigureConnectedAnchor = false;
             _joint.connectedAnchor=GrappleHead.transform.position;
           
-            _joint.maxDistance = _springLen*0.8f;
-            _joint.minDistance = _springLen * 0.25f;
+            _joint.maxDistance = _len*0.7f;
+            _joint.minDistance = _len * 0.25f;
 
             _joint.spring = 4.5f;
             _joint.damper = 7f;

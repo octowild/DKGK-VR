@@ -40,9 +40,7 @@ public class WorldLogic : MonoBehaviour
     public GameObject _Quiver;
 
 
-
-    public InputActionReference _RGrip;
-
+    public InputActionReference _slam;
     public InputActionReference _wep;
     public InputActionReference _RightStick;
     public Vector2 _RS;
@@ -54,7 +52,7 @@ public class WorldLogic : MonoBehaviour
     void Update()
     {
         //_Inv.Append("Dual Guns");
-
+        /*
         _RS = _RightStick.action.ReadValue<Vector2>();
         if (_RS.x<=-0.5&&_selectonce)
         {
@@ -68,6 +66,7 @@ public class WorldLogic : MonoBehaviour
             _selectonce=false;
         }
         if (_RS.x == 0f) { _selectonce = true; }
+        _wepcount = 0;
         switch (_wepcount)
         {
             case 0:
@@ -101,7 +100,10 @@ public class WorldLogic : MonoBehaviour
                 _cansp=false;
                 break;
         }
-
+        */
+        _priwep = _Dualgun;
+        _secwep = _Dualgun;
+        _dual = true;
 
         if (_priScript != null)
         {
@@ -116,8 +118,8 @@ public class WorldLogic : MonoBehaviour
                 else _cansp = true;
             }
         }
-
-        if ((_RS.x <= -0.5|| _RS.x >= 0.5) && _cansp && !_spawnonce)
+/*
+        if (_wep.action.triggered && _cansp && !_spawnonce)
         {
             if (_priScript!=null)_priScript.Reset();
             if (_secScript!= null) { _secScript.Reset(); }
@@ -127,8 +129,9 @@ public class WorldLogic : MonoBehaviour
             //_secScript = null;
             _spawnonce = true;
         }
+*/
 
-        if ((_RS.x <= -0.5 || _RS.x >= 0.5) && _cansp&&_spawnonce)
+        if (_wep.action.triggered && _spawnonce)
         {
             _currpriwep=Instantiate(_priwep,_RightDI.attachTransform.position,_RightDI.attachTransform.rotation);
             _prigrabI = _currpriwep.GetComponent<XRGrabInteractable>();
