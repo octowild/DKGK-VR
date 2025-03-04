@@ -43,6 +43,7 @@ public class WorldLogic : MonoBehaviour
 
     public InputActionReference _RGrip;
 
+    public InputActionReference _wep;
     public InputActionReference _RightStick;
     public Vector2 _RS;
  
