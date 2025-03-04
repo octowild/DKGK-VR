@@ -5,6 +5,7 @@ public class continousMovementPhysics : MonoBehaviour
 {
 
     public float _WalkSpeed = 1;
+    public float _strafespeed = 2f;
     public InputActionReference _walkInput;
     public Rigidbody _rb;
     public CapsuleCollider _bodyCol;
@@ -38,6 +39,10 @@ public class continousMovementPhysics : MonoBehaviour
             Quaternion yaw = Quaternion.Euler(0, _DirSrc.eulerAngles.y, 0);
             Vector3 _dir = yaw * new Vector3(_walkAxis.x, 0, _walkAxis.y);
             _rb.MovePosition(_rb.position + _dir * _WalkSpeed * Time.fixedDeltaTime);
+        }
+        if (!_IsGrounded && _isWalking)
+        {
+
         }
     }
 

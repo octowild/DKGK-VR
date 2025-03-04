@@ -27,6 +27,7 @@ public class Quiver : MonoBehaviour
         if (_trig.action.triggered&&_ready)
         {
             _drawarrow = true;
+            _ready = false;
         }
         //if (_drawarrow) DrawArrow();
     }
