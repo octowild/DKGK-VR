@@ -100,7 +100,7 @@ public class Grapple : MonoBehaviour
                     ) * Time.deltaTime;
             }
         }
-        if (_hookhit&&!_isJoint)
+        if (_hookhit&&!_isJoint && _joint == null)
         {
             _joint=_playerXR.AddComponent<SpringJoint>();
             _joint.autoConfigureConnectedAnchor = false;
@@ -117,6 +117,7 @@ public class Grapple : MonoBehaviour
         _handler._hookhit = _hookhit;
         if (_handler._resetRequest) Reset();
         if (_hookhit) this.GetComponent<gunsoundscript>().shootnow = false;
+        /*
         if (!_hookhit)
         {
             SpringJoint leakjoint = _playerXR.GetComponent<SpringJoint>();
@@ -125,6 +126,7 @@ public class Grapple : MonoBehaviour
                 Destroy(leakjoint);
             }
         }
+        */
     }
 
     public void FixedUpdate()
@@ -194,8 +196,8 @@ public class Grapple : MonoBehaviour
             
         }
 
-        if (_ReelDir.magnitude <= .01f) Reset();
-        
+        if (_ReelDir.magnitude <= 1f) Reset();
+       
     }
     public void OnHookHit(bool hookhit, GameObject hittarget)
     {
