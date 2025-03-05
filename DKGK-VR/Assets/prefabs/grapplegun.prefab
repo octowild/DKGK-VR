@@ -176,9 +176,11 @@ MonoBehaviour:
   shootnow: 0
   reelnow: 0
   loadnow: 0
+  shootnow2: 0
   shoot: {fileID: 8300000, guid: 09dd649542abc84408a2565af1bf0ae3, type: 3}
   reel: {fileID: 8300000, guid: 13bf17be27852cc40bbfab10bcbe0ea7, type: 3}
   load: {fileID: 8300000, guid: 2baeae0b0569b6c468cc6dcc59985c5a, type: 3}
+  reel2: {fileID: 8300000, guid: a361a4a61c0ea754197ea2a7d4e1193d, type: 3}
 --- !u!1 &7463610834066298947
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +535,7 @@ MonoBehaviour:
   _GrappleHeadSpeed: 300
   _GrappleHeadreelSpeed: 500
   _ReelPullSpeed: 5000
-  _maxswingdis: 2000
+  _maxswingdis: 100
   _hookgrav: 50
   _Shooting: 0
   _ready: 1
@@ -683,9 +685,11 @@ MonoBehaviour:
   shootnow: 0
   reelnow: 0
   loadnow: 0
+  shootnow2: 0
   shoot: {fileID: 8300000, guid: 09dd649542abc84408a2565af1bf0ae3, type: 3}
   reel: {fileID: 8300000, guid: 13bf17be27852cc40bbfab10bcbe0ea7, type: 3}
   load: {fileID: 8300000, guid: 2baeae0b0569b6c468cc6dcc59985c5a, type: 3}
+  reel2: {fileID: 8300000, guid: a361a4a61c0ea754197ea2a7d4e1193d, type: 3}
 --- !u!82 &2951739265072053888
 AudioSource:
   m_ObjectHideFlags: 0

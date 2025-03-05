@@ -117,6 +117,14 @@ public class Grapple : MonoBehaviour
         _handler._hookhit = _hookhit;
         if (_handler._resetRequest) Reset();
         if (_hookhit) this.GetComponent<gunsoundscript>().shootnow = false;
+        if (!_hookhit)
+        {
+            SpringJoint leakjoint = _playerXR.GetComponent<SpringJoint>();
+            if (leakjoint != null)
+            {
+                Destroy(leakjoint);
+            }
+        }
     }
 
     public void FixedUpdate()
@@ -186,7 +194,7 @@ public class Grapple : MonoBehaviour
             
         }
 
-        if (_ReelDir.magnitude <= 2f) Reset();
+        if (_ReelDir.magnitude <= .01f) Reset();
         
     }
     public void OnHookHit(bool hookhit, GameObject hittarget)
@@ -213,6 +221,7 @@ public class Grapple : MonoBehaviour
         if (_hitTag == "GrapplePull") _hitTarget.transform.SetParent(null, true);
         this.GetComponent<gunsoundscript>().shootnow = false;
         this.GetComponent<gunsoundscript>().reelnow = false;
+        this.GetComponent<gunsoundscript>().loadnow = true;
     }
 
     public void DrawRope()
