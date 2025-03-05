@@ -137,6 +137,7 @@ public class Grapple : MonoBehaviour
         _ready = false;
         GrappleHead.transform.SetParent(null,true);
         _LineR.positionCount = 2;
+        this.GetComponent<gunsoundscript>().shootnow = true;
     }
     public void GrappleStop()
     {
@@ -148,6 +149,8 @@ public class Grapple : MonoBehaviour
     }
     public void GrappleReel()
     {
+        this.GetComponent<gunsoundscript>().shootnow = false;
+        this.GetComponent<gunsoundscript>().reelnow = true;
         if (!_hookhit||_released)
         {
                 _ReelDir = GrappleGun.transform.position- GrappleHead.transform.position;
@@ -168,6 +171,7 @@ public class Grapple : MonoBehaviour
                 //Prb.useGravity = false;
                 //Player.transform.position += _ReelDir * Mathf.Lerp(0f, _ReelPullSpeed, 0.002f) * Time.deltaTime;
                 //Prb.AddForce(_ReelDir.normalized*_ReelPullSpeed*Time.deltaTime);
+                this.GetComponent<gunsoundscript>().shootnow = false;
             }
             else if (_hitTag == "GrapplePull")
             {
@@ -175,6 +179,7 @@ public class Grapple : MonoBehaviour
                 _ReelDir = GrappleGun.transform.position - GrappleHead.transform.position;
                 GrappleHead.transform.position += _ReelDir.normalized * _GrappleHeadSpeed * Time.deltaTime;
                 _hitTarget.transform.SetParent(GrappleHead.transform, true);
+                this.GetComponent<gunsoundscript>().shootnow = false;
             }
             
         }
@@ -203,7 +208,9 @@ public class Grapple : MonoBehaviour
         _Shooting = false;
         _reeling = false;
         _released = false;
-        if (_hitTag == "GrapplePull") _hitTarget.transform.SetParent(null, true);  
+        if (_hitTag == "GrapplePull") _hitTarget.transform.SetParent(null, true);
+        this.GetComponent<gunsoundscript>().shootnow = false;
+        this.GetComponent<gunsoundscript>().reelnow = false;
     }
 
     public void DrawRope()
