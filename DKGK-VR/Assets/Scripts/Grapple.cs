@@ -106,8 +106,8 @@ public class Grapple : MonoBehaviour
             _joint.autoConfigureConnectedAnchor = false;
             _joint.connectedAnchor=GrappleHead.transform.position;
           
-            _joint.maxDistance = _len*0.7f;
-            _joint.minDistance = _len * 0.25f;
+            _joint.maxDistance = _len*1f;
+            _joint.minDistance = 0f;
 
             _joint.spring = 4.5f;
             _joint.damper = 7f;
@@ -116,6 +116,7 @@ public class Grapple : MonoBehaviour
         }
         _handler._hookhit = _hookhit;
         if (_handler._resetRequest) Reset();
+        if (_hookhit) this.GetComponent<gunsoundscript>().shootnow = false;
     }
 
     public void FixedUpdate()
@@ -146,6 +147,7 @@ public class Grapple : MonoBehaviour
         //GrappleHead.transform.SetParent(GrappleGun.transform, true);
         Destroy(_joint);
         _isJoint=false;
+        this.GetComponent<gunsoundscript>().shootnow = true;
     }
     public void GrappleReel()
     {
@@ -164,10 +166,10 @@ public class Grapple : MonoBehaviour
                 //pulling player
                 _ReelDir = GrappleHead.transform.position - GrappleGun.transform.position;
                 //move player here
-                Prb.AddForce(_ReelDir.normalized * Mathf.Lerp(0f, _ReelPullSpeed, 0.2f) * Time.deltaTime);
+                Prb.AddForce(_ReelDir.normalized *  _ReelPullSpeed* Time.deltaTime);
                 float distancefrompoint=_ReelDir.magnitude;
-                _joint.maxDistance = distancefrompoint * 0.8f;
-                _joint.minDistance = distancefrompoint * 0.25f;
+                _joint.maxDistance = distancefrompoint;
+                _joint.minDistance = 0f;
                 //Prb.useGravity = false;
                 //Player.transform.position += _ReelDir * Mathf.Lerp(0f, _ReelPullSpeed, 0.002f) * Time.deltaTime;
                 //Prb.AddForce(_ReelDir.normalized*_ReelPullSpeed*Time.deltaTime);
