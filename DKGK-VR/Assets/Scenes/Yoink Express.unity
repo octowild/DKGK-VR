@@ -448,80 +448,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.56235135, y: 0.520646, z: 1.7950253}
   m_Center: {x: 0.124879226, y: 0, z: 0.8975127}
---- !u!1 &22963297
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 22963298}
-  - component: {fileID: 22963299}
-  m_Layer: 0
-  m_Name: World
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &22963298
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22963297}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &22963299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22963297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfbc88449704ecd41b0762b24d9b6f7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Inv: []
-  _Player: {fileID: 1154640393}
-  _Rightcontroller: {fileID: 1163802141}
-  _Leftcontroller: {fileID: 435527162}
-  _LeftDI: {fileID: 1542448282}
-  _RightDI: {fileID: 699628902}
-  _TrigR: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _TrigL: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _ReelR: {fileID: 2299736017791020862, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _ReelL: {fileID: -7003486972063880533, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _ReleaseR: {fileID: 3464299882828796646, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _ReleaseL: {fileID: 2780777060159461492, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _wepcount: 0
-  _dual: 0
-  _cansp: 0
-  _spawnonce: 1
-  _selectonce: 1
-  _maxwep: 3
-  _priwep: {fileID: 0}
-  _secwep: {fileID: 0}
-  _currpriwep: {fileID: 0}
-  _currsecwep: {fileID: 0}
-  _Dualgun: {fileID: 4458003642551422716, guid: fe2647af86eaf8e4f84d097bbeaf7d5d, type: 3}
-  _RocketGun: {fileID: 8409366624866531697, guid: 524f5e7094e0484498f87eddcbab2093, type: 3}
-  _Bow: {fileID: 7556099460117650610, guid: b81d1d6fa32e5a14a9e8c964c9e402ea, type: 3}
-  _Quiver: {fileID: 4863440620596763813, guid: 060c0207f9f9012499fd2ad2b84ea935, type: 3}
-  _slam: {fileID: -3616242679283299208, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _wep: {fileID: -573836161567895667, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _RightStick: {fileID: 0}
-  _RS: {x: 0, y: 0}
 --- !u!1001 &51654526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9142,6 +9068,80 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1160961395}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &1909485488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1909485490}
+  - component: {fileID: 1909485489}
+  m_Layer: 0
+  m_Name: Worldlogic
+  m_TagString: Logic
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1909485489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909485488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbc88449704ecd41b0762b24d9b6f7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Inv: []
+  _Player: {fileID: 1154640393}
+  _Rightcontroller: {fileID: 1163802141}
+  _Leftcontroller: {fileID: 435527162}
+  _LeftDI: {fileID: 1542448282}
+  _RightDI: {fileID: 699628902}
+  _TrigR: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _TrigL: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _ReelR: {fileID: 2299736017791020862, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _ReelL: {fileID: -7003486972063880533, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _ReleaseR: {fileID: 3464299882828796646, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _ReleaseL: {fileID: 2780777060159461492, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _wepcount: 0
+  _dual: 0
+  _cansp: 0
+  _spawnonce: 1
+  _selectonce: 1
+  _maxwep: 3
+  _priwep: {fileID: 0}
+  _secwep: {fileID: 0}
+  _currpriwep: {fileID: 0}
+  _currsecwep: {fileID: 0}
+  _Dualgun: {fileID: 4458003642551422716, guid: fe2647af86eaf8e4f84d097bbeaf7d5d, type: 3}
+  _RocketGun: {fileID: 8409366624866531697, guid: 524f5e7094e0484498f87eddcbab2093, type: 3}
+  _Bow: {fileID: 7556099460117650610, guid: b81d1d6fa32e5a14a9e8c964c9e402ea, type: 3}
+  _Quiver: {fileID: 4863440620596763813, guid: 060c0207f9f9012499fd2ad2b84ea935, type: 3}
+  _slam: {fileID: -3616242679283299208, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _wep: {fileID: -573836161567895667, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _RightStick: {fileID: 0}
+  _RS: {x: 0, y: 0}
+--- !u!4 &1909485490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909485488}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.1238172, y: 0.117880605, z: 0.63239324}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1909738961
 GameObject:
   m_ObjectHideFlags: 0
@@ -10646,7 +10646,6 @@ BoxCollider:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 22963298}
   - {fileID: 687671744}
   - {fileID: 1993680683}
   - {fileID: 474574121}
@@ -10659,3 +10658,4 @@ SceneRoots:
   - {fileID: 153041903}
   - {fileID: 1443645676}
   - {fileID: 2065174882}
+  - {fileID: 1909485490}
