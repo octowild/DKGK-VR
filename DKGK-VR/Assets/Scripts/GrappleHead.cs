@@ -18,7 +18,7 @@ public class GrappleHead : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer != 6)
+        if (other.gameObject.layer != 6|| other.gameObject.layer != 8)
         {
             HookHit.Invoke(true, other.gameObject);
         }
@@ -26,7 +26,7 @@ public class GrappleHead : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer != 6)
+        if (other.gameObject.layer != 6 || other.gameObject.layer != 8)
         {
             HookHit.Invoke(false, other.gameObject);
         }
