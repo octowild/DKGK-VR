@@ -27,7 +27,7 @@ public class Grapple : MonoBehaviour
 
     public float _springLen = 10f;
     public float _GrappleHeadSpeed = 20f;
-    public float _GrappleHeadreelSpeed = 20f;
+    public float _GrappleHeadReelSpeed = 20f;
     public float _ReelPullSpeed = 200f;
     public float _maxswingdis = 100f;
     public float _hookgrav=10f;
@@ -166,7 +166,7 @@ public class Grapple : MonoBehaviour
         if (!_hookhit||_released)
         {
                 _ReelDir = GrappleGun.transform.position- GrappleHead.transform.position;
-                GrappleHead.transform.position += _ReelDir.normalized * _GrappleHeadSpeed * Time.deltaTime;
+                GrappleHead.transform.position += _ReelDir.normalized * _GrappleHeadReelSpeed * Time.deltaTime;
                 //Hrb.AddForce (_ReelDir.normalized * _GrappleHeadSpeed * Time.deltaTime);
         }
         else if (_hookhit) 
