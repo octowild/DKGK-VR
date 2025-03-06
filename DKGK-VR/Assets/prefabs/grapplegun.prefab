@@ -545,7 +545,7 @@ MonoBehaviour:
   _Release: {fileID: 0}
   _springLen: 10
   _GrappleHeadSpeed: 300
-  _GrappleHeadreelSpeed: 500
+  _GrappleHeadReelSpeed: 5000
   _ReelPullSpeed: 5000
   _maxswingdis: 100
   _hookgrav: 50
