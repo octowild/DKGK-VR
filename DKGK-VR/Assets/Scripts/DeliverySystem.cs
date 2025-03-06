@@ -5,7 +5,6 @@ public class DeliverySystem : MonoBehaviour
 
     public bool _outForDelivery=false;
     public bool _BeaconSpawned = false;
-    public bool _IsPickup = true;
 
     public GameObject _CurrentBeacon;
 

@@ -196,7 +196,7 @@ public class Grapple : MonoBehaviour
             
         }
 
-        if (_ReelDir.magnitude <= 1f) Reset();
+        if (_ReelDir.magnitude <= 2f) Reset();
        
     }
     public void OnHookHit(bool hookhit, GameObject hittarget)
