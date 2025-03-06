@@ -7,11 +7,11 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class WorldLogic : MonoBehaviour
 {
-    public string[] _Inv;
+    //public string[] _Inv;
 
     public GameObject _Player;
-    public GameObject _Rightcontroller;
-    public GameObject _Leftcontroller;
+    //public GameObject _Rightcontroller;
+    //public GameObject _Leftcontroller;
     public XRDirectInteractor _LeftDI;
     public XRDirectInteractor _RightDI;
 
@@ -23,12 +23,12 @@ public class WorldLogic : MonoBehaviour
     public InputActionReference _ReleaseL;
 
     //prefabs
-    public int _wepcount = 0;
+    //public int _wepcount = 0;
     public bool _dual=false;
-    public bool _cansp=false;
+    //public bool _cansp=false;
     public bool _spawnonce = true;
-    public bool _selectonce = true;
-    public int _maxwep = 3;
+    //public bool _selectonce = true;
+    //public int _maxwep = 3;
     public GameObject _priwep;
     public GameObject _secwep;
     public GameObject _currpriwep;
@@ -42,13 +42,14 @@ public class WorldLogic : MonoBehaviour
 
     public InputActionReference _slam;
     public InputActionReference _wep;
-    public InputActionReference _RightStick;
-    public Vector2 _RS;
+    //public InputActionReference _RightStick;
+    //public Vector2 _RS;
  
     private IXRSelectInteractable _prigrabI;
     private IXRSelectInteractable _secgrabI;
     private weaponHandler _priScript;
     private weaponHandler _secScript;
+
     void Update()
     {
         //_Inv.Append("Dual Guns");
@@ -100,10 +101,8 @@ public class WorldLogic : MonoBehaviour
                 _cansp=false;
                 break;
         }
-        */
-        _priwep = _Dualgun;
-        _secwep = _Dualgun;
-        _dual = true;
+
+
 
         if (_priScript != null)
         {
@@ -118,7 +117,7 @@ public class WorldLogic : MonoBehaviour
                 else _cansp = true;
             }
         }
-/*
+
         if (_wep.action.triggered && _cansp && !_spawnonce)
         {
             if (_priScript!=null)_priScript.Reset();
@@ -130,6 +129,9 @@ public class WorldLogic : MonoBehaviour
             _spawnonce = true;
         }
 */
+        _priwep = _Dualgun;
+        _secwep = _Dualgun;
+        _dual = true;
 
         if (_wep.action.triggered && _spawnonce)
         {
