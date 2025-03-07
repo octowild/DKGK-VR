@@ -2014,11 +2014,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.19308534, y: 0.24466833, z: 0.73789424}
   m_Center: {x: 0.000018883497, y: 0, z: 0.3689471}
---- !u!1 &435527162 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8442247772114858000, guid: c6c81cc97808cb54f85fb10bd6962418, type: 3}
-  m_PrefabInstance: {fileID: 1993680683}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &443214365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6202,11 +6197,6 @@ Transform:
   - {fileID: 946490539}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1163802141 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8442247772559438063, guid: c6c81cc97808cb54f85fb10bd6962418, type: 3}
-  m_PrefabInstance: {fileID: 1993680683}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1169914272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7954,6 +7944,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ground
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dedd8ebd49ddcc24cbeb8191067f1ab7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dedd8ebd49ddcc24cbeb8191067f1ab7, type: 3}
+      propertyPath: m_TagString
+      value: GrappleTo
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9098,10 +9096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfbc88449704ecd41b0762b24d9b6f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Inv: []
   _Player: {fileID: 1154640393}
-  _Rightcontroller: {fileID: 1163802141}
-  _Leftcontroller: {fileID: 435527162}
   _LeftDI: {fileID: 1542448282}
   _RightDI: {fileID: 699628902}
   _TrigR: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
@@ -9110,12 +9105,8 @@ MonoBehaviour:
   _ReelL: {fileID: -7003486972063880533, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _ReleaseR: {fileID: 3464299882828796646, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _ReleaseL: {fileID: 2780777060159461492, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _wepcount: 0
   _dual: 0
-  _cansp: 0
   _spawnonce: 1
-  _selectonce: 1
-  _maxwep: 3
   _priwep: {fileID: 0}
   _secwep: {fileID: 0}
   _currpriwep: {fileID: 0}
@@ -9126,8 +9117,6 @@ MonoBehaviour:
   _Quiver: {fileID: 4863440620596763813, guid: 060c0207f9f9012499fd2ad2b84ea935, type: 3}
   _slam: {fileID: -3616242679283299208, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _wep: {fileID: -573836161567895667, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _RightStick: {fileID: 0}
-  _RS: {x: 0, y: 0}
 --- !u!4 &1909485490
 Transform:
   m_ObjectHideFlags: 0
@@ -9155,6 +9144,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a690d570d78ba46b7ba671de19a6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _outForDelivery: 0
+  _BeaconSpawned: 0
+  _CurrentBeacon: {fileID: 0}
+  _DeliveryPickupBeaconPrefab: {fileID: 7089963958937487507, guid: d99c0c1da06e2bf48a29365cae041a1d, type: 3}
+  _DeliveryDropoffBeaconPrefab: {fileID: 7089963958937487507, guid: 27a4fe2eab6e19542bb525123aa4cfdb, type: 3}
 --- !u!1 &1909738961
 GameObject:
   m_ObjectHideFlags: 0
