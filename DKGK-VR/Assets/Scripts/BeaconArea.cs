@@ -1,11 +1,21 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BeaconArea : MonoBehaviour
 {
-    public bool _trigger = false;
+    public int _P=0;
+    public UnityEvent<int> _triggered;
+    public LineRenderer _LR;
+    public Transform _selfpos;
 
+
+    public void Update()
+    {
+        _LR.positionCount = 2;
+        _LR.SetPosition(0,_selfpos.position);
+    }
     public void OnTriggerEnter(Collider other)
     {
-        _trigger = true;
+        if (other.gameObject.layer == 6) _triggered.Invoke(_P);
     }
 }

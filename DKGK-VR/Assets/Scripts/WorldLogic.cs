@@ -9,6 +9,8 @@ public class WorldLogic : MonoBehaviour
 {
     //public string[] _Inv;
 
+    public int _packageCount = 0;
+
     public GameObject _Player;
     //public GameObject _Rightcontroller;
     //public GameObject _Leftcontroller;

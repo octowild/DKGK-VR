@@ -2852,6 +2852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfbc88449704ecd41b0762b24d9b6f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _packageCount: 0
   _Player: {fileID: 1154640393}
   _LeftDI: {fileID: 1542448282}
   _RightDI: {fileID: 699628902}
@@ -2902,6 +2903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _outForDelivery: 0
   _BeaconSpawned: 0
+  _WorldLogic: {fileID: 1909485489}
   _CurrentBeacon: {fileID: 0}
   _beaconS: {fileID: 0}
   _DeliveryPickupBeaconPrefab: {fileID: 7089963958937487507, guid: d99c0c1da06e2bf48a29365cae041a1d, type: 3}

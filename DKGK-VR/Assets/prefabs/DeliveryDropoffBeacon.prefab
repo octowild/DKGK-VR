@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5135707316802151920}
   - component: {fileID: 3218193365989794600}
   - component: {fileID: 967122753032852710}
+  - component: {fileID: 6634874350427181743}
   m_Layer: 8
   m_Name: DeliveryDropoffBeacon
   m_TagString: Untagged
@@ -162,6 +163,24 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &6634874350427181743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7089963958937487507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ab5e8b7fdec234aaefa6704550be18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _P: 0
+  _triggered:
+    m_PersistentCalls:
+      m_Calls: []
+  _LR: {fileID: 967122753032852710}
+  _selfpos: {fileID: 5135707316802151920}
 --- !u!1 &7881751267245670405
 GameObject:
   m_ObjectHideFlags: 0
