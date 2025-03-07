@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 242542987498111612}
   m_Layer: 7
   m_Name: Colliders (5)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 8403019540101606074}
   m_Layer: 7
   m_Name: box (4)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 4157442957927979880}
   m_Layer: 7
   m_Name: cap (4)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 1977032111475188776}
   m_Layer: 7
   m_Name: box (5)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 4325299939638505006}
   m_Layer: 7
   m_Name: cap
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 2991621447120489951}
   m_Layer: 7
   m_Name: box (7)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 8772920353308963351}
   m_Layer: 7
   m_Name: Colliders (3)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 8129613964728327598}
   m_Layer: 7
   m_Name: Colliders (2)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 7416714596713842030}
   m_Layer: 7
   m_Name: Colliders (6)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -489,7 +489,7 @@ GameObject:
   - component: {fileID: 5302897605605999655}
   m_Layer: 7
   m_Name: cap (2)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 6524858733353501055}
   m_Layer: 7
   m_Name: box
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -595,7 +595,7 @@ GameObject:
   - component: {fileID: 3895777235803158659}
   m_Layer: 7
   m_Name: Colliders (1)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -648,7 +648,7 @@ GameObject:
   - component: {fileID: 2976581928622507183}
   m_Layer: 7
   m_Name: box (2)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -698,9 +698,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4306294562781138001}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: colliders
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 2806740670700184127}
   m_Layer: 7
   m_Name: cap (5)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -807,7 +807,7 @@ GameObject:
   - component: {fileID: 4363498941154363119}
   m_Layer: 7
   m_Name: Colliders (4)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -860,7 +860,7 @@ GameObject:
   - component: {fileID: 3038091640901902261}
   m_Layer: 7
   m_Name: cap (6)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -913,7 +913,7 @@ GameObject:
   - component: {fileID: 1402131786290904773}
   m_Layer: 7
   m_Name: box (6)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -966,7 +966,7 @@ GameObject:
   - component: {fileID: 8269894093163154914}
   m_Layer: 7
   m_Name: box (3)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1019,7 +1019,7 @@ GameObject:
   - component: {fileID: 1598376792917734375}
   m_Layer: 7
   m_Name: cap (3)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1072,7 +1072,7 @@ GameObject:
   - component: {fileID: 8472394837403217958}
   m_Layer: 7
   m_Name: box (1)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1125,7 +1125,7 @@ GameObject:
   - component: {fileID: 3519281840402381551}
   m_Layer: 7
   m_Name: cap (7)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1178,7 +1178,7 @@ GameObject:
   - component: {fileID: 7011222958332907414}
   m_Layer: 7
   m_Name: cap (1)
-  m_TagString: Untagged
+  m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
