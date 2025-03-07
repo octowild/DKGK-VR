@@ -2903,8 +2903,9 @@ MonoBehaviour:
   _outForDelivery: 0
   _BeaconSpawned: 0
   _CurrentBeacon: {fileID: 0}
-  _DeliveryPickupBeaconPrefab: {fileID: 0}
-  _DeliveryDropoffBeaconPrefab: {fileID: 0}
+  _beaconS: {fileID: 0}
+  _DeliveryPickupBeaconPrefab: {fileID: 7089963958937487507, guid: d99c0c1da06e2bf48a29365cae041a1d, type: 3}
+  _DeliveryDropoffBeaconPrefab: {fileID: 7089963958937487507, guid: 27a4fe2eab6e19542bb525123aa4cfdb, type: 3}
 --- !u!1 &1909738961
 GameObject:
   m_ObjectHideFlags: 0

@@ -209,7 +209,8 @@ public class Grapple : MonoBehaviour
     public void Reset()
     {
         GrappleHead.transform.position = BarrelPos.transform.position;
-        GrappleHead.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        //GrappleHead.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        GrappleHead.transform.rotation=GrappleGun.transform.rotation;
         GrappleHead.transform.SetParent(GrappleGun.transform, true);
         //Prb.useGravity=true;
         if (_joint!=null) Destroy(_joint);
