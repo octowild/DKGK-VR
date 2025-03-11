@@ -19,6 +19,6 @@ public class Watch : MonoBehaviour
     void Update()
     {
         _package.text= _worldLogic._packageCount.ToString();
-        _speedOMeter.text = _Player.maxAngularVelocity.ToString();
+        _speedOMeter.text = _Player.linearVelocity.magnitude.ToString();
     }
 }
