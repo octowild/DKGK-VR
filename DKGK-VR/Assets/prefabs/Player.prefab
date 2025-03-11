@@ -1894,5 +1894,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _worldLogic: {fileID: 0}
-  _package: {fileID: 0}
-  _speedOMeter: {fileID: 0}
+  _Player: {fileID: 180381576762648854}
+  _package: {fileID: 2755225367993928084}
+  _speedOMeter: {fileID: 6256809072823797207}
