@@ -13,6 +13,7 @@ public class BeaconArea : MonoBehaviour
     {
         _LR.positionCount = 2;
         _LR.SetPosition(0,_selfpos.position);
+        _LR.SetPosition(1,new Vector3(_selfpos.position.x,1000, _selfpos.position.z));
     }
     public void OnTriggerEnter(Collider other)
     {

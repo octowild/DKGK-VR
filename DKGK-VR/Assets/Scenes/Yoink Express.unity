@@ -9019,6 +9019,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 800866337}
     m_Modifications:
+    - target: {fileID: 4817831270610648054, guid: e14ed7d6c816f1248b74c3c56756425d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817831270610648054, guid: e14ed7d6c816f1248b74c3c56756425d, type: 3}
+      propertyPath: m_TagString
+      value: GrappleTo
+      objectReference: {fileID: 0}
     - target: {fileID: 7355249275381724868, guid: e14ed7d6c816f1248b74c3c56756425d, type: 3}
       propertyPath: m_Name
       value: yeet corp
