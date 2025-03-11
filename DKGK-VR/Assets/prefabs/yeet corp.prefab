@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &3392116936588846276
 Transform:
@@ -68,7 +68,7 @@ GameObject:
   m_TagString: GrappleTo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &3254720104837381209
 Transform:
@@ -150,6 +150,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: yeet corp logo
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c50eb708837b38544a79db70c6d0c4e8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -208,9 +212,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 1f70b47968522254f81fee80bd777ea6, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.079
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1f70b47968522254f81fee80bd777ea6, type: 3}
       propertyPath: m_Name
       value: yeet corp
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1f70b47968522254f81fee80bd777ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
