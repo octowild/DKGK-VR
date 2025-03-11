@@ -488,7 +488,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0 m/s
+  m_text: 0 km/h
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4771f283882fad34c9cddb2b1889be9e, type: 2}
   m_sharedMaterial: {fileID: 370850096561623950, guid: 4771f283882fad34c9cddb2b1889be9e, type: 2}
@@ -1897,3 +1897,5 @@ MonoBehaviour:
   _Player: {fileID: 180381576762648854}
   _package: {fileID: 2755225367993928084}
   _speedOMeter: {fileID: 6256809072823797207}
+  _add: ' km/hr'
+  _velo: 0

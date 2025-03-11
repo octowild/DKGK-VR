@@ -9,7 +9,7 @@ public class Watch : MonoBehaviour
     public Rigidbody _Player;
     public TextMeshProUGUI _package;
     public TextMeshProUGUI _speedOMeter;
-    public string _add=" m/s";
+    public string _add=" km/hr";
     public float _velo;
      
 
@@ -20,8 +20,8 @@ public class Watch : MonoBehaviour
 
     void Update()
     {
-        _velo = _Player.linearVelocity.magnitude;
-        _package.text= _worldLogic._packageCount.ToString()+_add;
-        _speedOMeter.text = _velo.ToString();
+        _velo = _Player.linearVelocity.magnitude*18/5;
+        _package.text= _worldLogic._packageCount.ToString();
+        _speedOMeter.text = _velo.ToString() + _add;
     }
 }
