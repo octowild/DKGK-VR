@@ -18,7 +18,7 @@ public class DeliverySystem : MonoBehaviour
 
     void Update()
     {
-        _spawnpoint = new Vector3(Random.Range(-20, 20), 0, Random.Range(-10, 10));
+        _spawnpoint = new Vector3(Random.Range(-3000, 2600), 0, Random.Range(-3400, 2700));
         if (!_BeaconSpawned) SpawnBeacon();      
     }
 
