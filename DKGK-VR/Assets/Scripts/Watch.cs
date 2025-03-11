@@ -22,6 +22,6 @@ public class Watch : MonoBehaviour
     {
         _velo = _Player.linearVelocity.magnitude*18/5;
         _package.text= _worldLogic._packageCount.ToString();
-        _speedOMeter.text = _velo.ToString() + _add;
+        _speedOMeter.text = _velo.ToString("0.00") + _add;
     }
 }
