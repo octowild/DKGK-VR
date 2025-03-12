@@ -16,6 +16,8 @@ public class DeliverySystem : MonoBehaviour
     private Vector3 _spawnpoint;
     private int _buffer;
 
+    public GameObject watch;
+
     void Update()
     {
         _spawnpoint = new Vector3(Random.Range(-3000, 2600), 0, Random.Range(-3400, 2700));
@@ -50,6 +52,8 @@ public class DeliverySystem : MonoBehaviour
             _outForDelivery = false;
         }
         _WorldLogic._packageCount += _Trig;
+        watch.GetComponent<AudioSource>().Pause();
+        watch.GetComponent<AudioSource>().Play();
         _beaconS._triggered.RemoveListener(Trig);
         Destroy( _CurrentBeacon );
         _BeaconSpawned = false;
