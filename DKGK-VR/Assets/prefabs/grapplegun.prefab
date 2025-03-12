@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2060597260729910452}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00032, y: -0.0296, z: 0.0064}
+  m_LocalPosition: {x: 0.00032, y: -0.026, z: 0.0064}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -558,6 +558,8 @@ MonoBehaviour:
   _hitTarget: {fileID: 0}
   _LineR: {fileID: 2080058314480448330}
   _joint: {fileID: 0}
+  _cableNotHit: {fileID: 0}
+  _cableHit: {fileID: 0}
   _isJoint: 0
 --- !u!120 &2080058314480448330
 LineRenderer:
@@ -583,7 +585,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4125471728267972529, guid: 00c9c177e828a57439e290aef2a23b3f, type: 3}
+  - {fileID: 2100000, guid: 342356d6731aa7e49875f64f1c556200, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -825,7 +827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 748deb0a15a9f844cab966f41b9ee467, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0296
+      value: -0.0165
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 748deb0a15a9f844cab966f41b9ee467, type: 3}
       propertyPath: m_LocalPosition.z

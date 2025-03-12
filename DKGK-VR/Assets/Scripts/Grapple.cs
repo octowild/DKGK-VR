@@ -46,6 +46,9 @@ public class Grapple : MonoBehaviour
     public LineRenderer _LineR;
     public SpringJoint _joint;
 
+    public Material _cableNotHit;
+    public Material _cableHit;
+
     private float _len;
     public bool _isJoint=false;
 
@@ -127,6 +130,10 @@ public class Grapple : MonoBehaviour
             }
         }
         */
+        
+        if (_hookhit) _LineR.material.color = Color.yellow;
+        else _LineR.material.color = Color.white;
+
     }
 
     public void FixedUpdate()
